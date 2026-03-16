@@ -6,6 +6,7 @@ stages:
 variables:
   IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
   IMAGE_LATEST: $CI_REGISTRY_IMAGE:latest
+  IMAGE_BRANCH: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: "/certs"
 
@@ -33,11 +34,48 @@ docker_build_push:
   before_script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" --password-stdin
   script:
-    - docker build --pull -t "$IMAGE_TAG" -t "$IMAGE_LATEST" .
+    - docker build --pull -t "$IMAGE_TAG" -t "$IMAGE_BRANCH" .
+    - if [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then docker tag "$IMAGE_TAG" "$IMAGE_LATEST"; fi
     - docker push "$IMAGE_TAG"
-    - docker push "$IMAGE_LATEST"
+    - docker push "$IMAGE_BRANCH"
+    - if [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then docker push "$IMAGE_LATEST"; fi
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH
+
+deploy_staging:
+  stage: deploy
+  image: alpine:3.20
+  needs: ["docker_build_push"]
+  before_script:
+    - apk add --no-cache openssh-client rsync bash
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan -H "$DEPLOY_HOST_STAGING" >> ~/.ssh/known_hosts
+  script:
+    - rsync -az --delete --exclude '.git' ./ "$DEPLOY_USER_STAGING@$DEPLOY_HOST_STAGING:$DEPLOY_PATH_STAGING/"
+    - |
+      ssh "$DEPLOY_USER_STAGING@$DEPLOY_HOST_STAGING" \
+      "cd '$DEPLOY_PATH_STAGING' && \
+       chmod +x deploy/scripts/staging_deploy.sh deploy/scripts/certbot_renew.sh deploy/scripts/render_nginx_config.sh && \
+       IMAGE='$IMAGE_TAG' \
+       CI_REGISTRY='$CI_REGISTRY' \
+       CI_REGISTRY_USER='$CI_REGISTRY_USER' \
+       CI_REGISTRY_PASSWORD='$CI_REGISTRY_PASSWORD' \
+       SERVER_NAME='$STAGING_SERVER_NAME' \
+       CERT_DOMAIN='$STAGING_CERT_DOMAIN' \
+       LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' \
+       NETWORK_NAME='${STAGING_NETWORK_NAME:-maratg2_net_staging}' \
+       PROXY_CONTAINER='${STAGING_PROXY_CONTAINER:-maratg2-staging-proxy}' \
+       STAGING_CONTAINER_NAME='${STAGING_APP_CONTAINER:-maratg2-app-staging}' \
+       HTTP_PORT='${STAGING_HTTP_PORT:-80}' \
+       HTTPS_PORT='${STAGING_HTTPS_PORT:-443}' \
+       ./deploy/scripts/staging_deploy.sh"
+  environment:
+    name: staging
+    url: $STAGING_URL
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
 
 deploy_production:
   stage: deploy
@@ -48,21 +86,29 @@ deploy_production:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
-    - ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+    - ssh-keyscan -H "$DEPLOY_HOST_PRODUCTION" >> ~/.ssh/known_hosts
   script:
-    - rsync -az --delete --exclude '.git' ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+    - rsync -az --delete --exclude '.git' ./ "$DEPLOY_USER_PRODUCTION@$DEPLOY_HOST_PRODUCTION:$DEPLOY_PATH_PRODUCTION/"
     - |
-      ssh "$DEPLOY_USER@$DEPLOY_HOST" \
-      "cd '$DEPLOY_PATH' && \
-       chmod +x deploy/scripts/blue_green_deploy.sh && \
+      ssh "$DEPLOY_USER_PRODUCTION@$DEPLOY_HOST_PRODUCTION" \
+      "cd '$DEPLOY_PATH_PRODUCTION' && \
+       chmod +x deploy/scripts/blue_green_deploy.sh deploy/scripts/certbot_renew.sh deploy/scripts/render_nginx_config.sh && \
        IMAGE='$IMAGE_TAG' \
        CI_REGISTRY='$CI_REGISTRY' \
        CI_REGISTRY_USER='$CI_REGISTRY_USER' \
        CI_REGISTRY_PASSWORD='$CI_REGISTRY_PASSWORD' \
-       SERVER_NAME='${SERVER_NAME:-_}' \
+       SERVER_NAME='$PRODUCTION_SERVER_NAME' \
+       CERT_DOMAIN='$PRODUCTION_CERT_DOMAIN' \
+       LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' \
+       NETWORK_NAME='${PRODUCTION_NETWORK_NAME:-maratg2_net}' \
+       PROXY_CONTAINER='${PRODUCTION_PROXY_CONTAINER:-maratg2-proxy}' \
+       BLUE_CONTAINER_NAME='${PRODUCTION_BLUE_CONTAINER:-maratg2-app-blue}' \
+       GREEN_CONTAINER_NAME='${PRODUCTION_GREEN_CONTAINER:-maratg2-app-green}' \
+       HTTP_PORT='${PRODUCTION_HTTP_PORT:-80}' \
+       HTTPS_PORT='${PRODUCTION_HTTPS_PORT:-443}' \
        ./deploy/scripts/blue_green_deploy.sh"
   environment:
     name: production
     url: $PRODUCTION_URL
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

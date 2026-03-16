@@ -1,92 +1,117 @@
-# maratg2 — CI/CD (GitLab + Docker + Blue/Green)
+# maratg2 — CI/CD (GitLab + Docker + Staging + Production Blue/Green + Let's Encrypt)
 
-В проект добавлен production-ready pipeline для сборки и деплоя Next.js приложения в Docker-контейнерах с blue/green переключением для высокой доступности.
+Реализован полный CI/CD контур:
 
-## Что реализовано
+- **non-main ветки** деплоятся только в **staging** (single-container);
+- **main ветка** деплоится только в **production** (blue/green, без даунтайма);
+- для staging и production включен **HTTPS через Let's Encrypt**;
+- настроено **автопродление сертификатов** без остановки nginx (через `certbot renew` + `nginx -s reload`).
 
-- `Dockerfile` для production-сборки Next.js (standalone runtime)
-- `next.config.ts` с `output: "standalone"`
-- health endpoint: `GET /api/health`
-- GitLab CI/CD: `.gitlab-ci.yml`
+## Что есть в проекте
+
+- Production Docker образ Next.js (standalone runtime)
+  - `Dockerfile`
+  - `next.config.ts` → `output: "standalone"`
+- Health endpoint: `GET /api/health`
+- GitLab pipeline: `.gitlab-ci.yml`
   - `lint`
-  - `docker_build_push` (build + push в GitLab Container Registry)
-  - `deploy_production` (SSH деплой на сервер)
-- Blue/Green деплой:
+  - `docker_build_push`
+  - `deploy_staging` (только не-main)
+  - `deploy_production` (только main)
+- Compose-файлы:
+  - `deploy/docker-compose.staging.yml` (single app)
   - `deploy/docker-compose.blue.yml`
   - `deploy/docker-compose.green.yml`
-  - `deploy/docker-compose.proxy.yml`
-  - `deploy/nginx/default.conf.template`
-  - `deploy/nginx/generated/default.conf` (текущая активная конфигурация)
+  - `deploy/docker-compose.proxy.yml` (nginx + certbot service profile)
+- Nginx templates:
+  - `deploy/nginx/http-only.conf.template` (для первого запуска и ACME)
+  - `deploy/nginx/default.conf.template` (HTTPS + reverse proxy)
+- Скрипты:
+  - `deploy/scripts/staging_deploy.sh`
   - `deploy/scripts/blue_green_deploy.sh`
+  - `deploy/scripts/certbot_renew.sh`
+  - `deploy/scripts/render_nginx_config.sh`
 
-## Архитектура деплоя
+## Поведение по веткам
 
-1. Pipeline собирает образ и пушит теги:
-   - `$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA`
-   - `$CI_REGISTRY_IMAGE:latest`
-2. На сервер по SSH доставляется репозиторий (`rsync`).
-3. Скрипт `blue_green_deploy.sh`:
-   - поднимает неактивный цвет (`app-blue` или `app-green`),
-   - ждёт `healthy` через Docker healthcheck,
-   - переключает Nginx upstream на новый цвет,
-   - reload Nginx без даунтайма,
-   - останавливает старый цвет.
+- **Если branch != main**: запускается `deploy_staging`.
+- **Если branch == main**: запускается `deploy_production`.
 
-Итог: обновление происходит без прерывания трафика (24/7 сценарий).
+Таким образом staging и production строго разделены по правилам GitLab CI.
 
-## Требования к production серверу
+## Как работает HTTPS / Certbot
 
-- Linux сервер с установленными:
-  - Docker Engine
-  - Docker Compose v2 (`docker compose`)
-  - Bash
-- Открыт порт `80/tcp`
-- Пользователь с правами запускать Docker
+1. Прокси сначала запускается с HTTP-конфигом (`http-only.conf.template`) и отдачей ACME challenge.
+2. Certbot получает сертификат (`certonly --webroot`) для домена.
+3. Nginx-конфиг переключается на HTTPS (`default.conf.template`) и делается `nginx -s reload`.
+4. На сервере автоматически регистрируется cron-задача (каждые 12 часов), которая:
+   - выполняет `certbot renew`,
+   - перерендеривает nginx-конфиг,
+   - делает reload nginx **без остановки контейнера**.
 
-## GitLab CI/CD Variables (Settings → CI/CD → Variables)
+## GitLab CI/CD Variables
 
-Обязательные:
+### Общие
 
-- `CI_REGISTRY_USER` *(обычно есть встроенно)*
-- `CI_REGISTRY_PASSWORD` *(обычно есть встроенно)*
-- `SSH_PRIVATE_KEY` — приватный ключ для доступа к deploy-серверу
-- `DEPLOY_HOST` — IP/домен сервера
-- `DEPLOY_USER` — SSH пользователь
-- `DEPLOY_PATH` — путь на сервере, куда синхронизируется проект (например `/opt/maratg2`)
-- `PRODUCTION_URL` — публичный URL сайта (например `https://example.com`)
+- `SSH_PRIVATE_KEY`
+- `LETSENCRYPT_EMAIL`
+- `CI_REGISTRY_USER` / `CI_REGISTRY_PASSWORD` (обычно встроенные)
 
-Опциональные:
+### Staging
 
-- `SERVER_NAME` — server_name для Nginx (по умолчанию `_`)
+- `DEPLOY_HOST_STAGING`
+- `DEPLOY_USER_STAGING`
+- `DEPLOY_PATH_STAGING` (например `/opt/maratg2-staging`)
+- `STAGING_URL` (например `https://staging.example.com`)
+- `STAGING_SERVER_NAME` (обычно `staging.example.com`)
+- `STAGING_CERT_DOMAIN` (обычно `staging.example.com`)
 
-## Первая инициализация сервера (один раз)
+Опционально:
 
-На сервере:
+- `STAGING_NETWORK_NAME` (default: `maratg2_net_staging`)
+- `STAGING_PROXY_CONTAINER` (default: `maratg2-staging-proxy`)
+- `STAGING_APP_CONTAINER` (default: `maratg2-app-staging`)
+- `STAGING_HTTP_PORT` (default: `80`)
+- `STAGING_HTTPS_PORT` (default: `443`)
+
+### Production
+
+- `DEPLOY_HOST_PRODUCTION`
+- `DEPLOY_USER_PRODUCTION`
+- `DEPLOY_PATH_PRODUCTION` (например `/opt/maratg2-prod`)
+- `PRODUCTION_URL` (например `https://example.com`)
+- `PRODUCTION_SERVER_NAME` (например `example.com`)
+- `PRODUCTION_CERT_DOMAIN` (например `example.com`)
+
+Опционально:
+
+- `PRODUCTION_NETWORK_NAME` (default: `maratg2_net`)
+- `PRODUCTION_PROXY_CONTAINER` (default: `maratg2-proxy`)
+- `PRODUCTION_BLUE_CONTAINER` (default: `maratg2-app-blue`)
+- `PRODUCTION_GREEN_CONTAINER` (default: `maratg2-app-green`)
+- `PRODUCTION_HTTP_PORT` (default: `80`)
+- `PRODUCTION_HTTPS_PORT` (default: `443`)
+
+## Подготовка серверов (один раз)
+
+### Staging server
 
 ```bash
-mkdir -p /opt/maratg2
-cd /opt/maratg2
+mkdir -p /opt/maratg2-staging
+cd /opt/maratg2-staging
+docker network create maratg2_net_staging || true
+```
+
+### Production server
+
+```bash
+mkdir -p /opt/maratg2-prod
+cd /opt/maratg2-prod
 docker network create maratg2_net || true
-```
-
-Далее — просто пуш в default branch, pipeline выполнит всё автоматически.
-
-## Локальная проверка Docker образа
-
-```bash
-docker build -t maratg2:local .
-docker run --rm -p 3000:3000 maratg2:local
-```
-
-Проверка health:
-
-```bash
-curl http://localhost:3000/api/health
 ```
 
 ## Важно
 
-- Текущий Nginx proxy работает по HTTP (`:80`).
-- Для HTTPS (рекомендуется) добавьте TLS-терминацию:
-  - либо внешним reverse proxy / LB,
-  - либо расширением текущего Nginx (сертификаты + 443 + редирект с 80).
+- Для Let's Encrypt домены должны резолвиться на соответствующий сервер.
+- Порты `80` и `443` должны быть открыты (или проксированы до контейнера nginx).
+- Если staging и production находятся на одном хосте, задайте разные `*_HTTP_PORT` и `*_HTTPS_PORT`.
