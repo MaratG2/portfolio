@@ -105,6 +105,12 @@ body {
   background: rgba(0, 0, 0, 0.03);
 }
 
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .chip {
   display: inline-flex;
   border-radius: 999px;
@@ -121,12 +127,12 @@ body {
 }
 
 .profile-circle {
-  width: 12rem;
+  width: clamp(5.2rem, 13vw, 7.8rem);
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #fff;
@@ -182,6 +188,47 @@ body {
   background: #fff;
 }
 
+.section-stage {
+  padding: 0.95rem;
+}
+
+.section-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.35rem 0.15rem 0.85rem;
+}
+
+.section-pane-scroll {
+  max-height: min(62vh, 650px);
+  overflow-y: auto;
+  padding: 0rem 0.15rem 0.2rem;
+}
+
+.section-pane {
+  animation: pane-in 260ms ease;
+}
+
+.section-hint {
+  margin-top: 0.65rem;
+  font-size: 0.84rem;
+  color: rgba(0, 0, 0, 0.55);
+  text-align: center;
+}
+
+@keyframes pane-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -197,9 +244,22 @@ body {
   .section-card {
     padding: 1.7rem;
   }
+
+  .section-stage {
+    padding: 1.2rem;
+  }
 }
 
 @media (max-width: 767px) {
+  .section-stage-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-pane-scroll {
+    max-height: 64vh;
+  }
+
   .timeline-item {
     flex-direction: column;
   }
