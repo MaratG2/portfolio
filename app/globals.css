@@ -23,15 +23,71 @@ html {
 }
 
 body {
-  background: var(--background);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(165deg, #fbfffd 0%, #eef8f2 45%, #f7fcf9 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
 
+.motion-bg {
+  position: fixed;
+  inset: -10% -8%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mg-orb {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(62, 195, 123, 0.34) 0%, rgba(62, 195, 123, 0) 72%);
+  filter: blur(8px);
+  will-change: transform;
+}
+
+.mg-orb.orb-1 {
+  width: min(52vw, 52rem);
+  height: min(52vw, 52rem);
+  left: -14vw;
+  top: -24vh;
+  animation: orb-drift-a 14s ease-in-out infinite;
+}
+
+.mg-orb.orb-2 {
+  width: min(46vw, 46rem);
+  height: min(46vw, 46rem);
+  right: -12vw;
+  top: -18vh;
+  opacity: 0.86;
+  animation: orb-drift-b 17s ease-in-out infinite;
+}
+
+.mg-orb.orb-3 {
+  width: min(42vw, 40rem);
+  height: min(42vw, 40rem);
+  left: 36vw;
+  top: 48vh;
+  opacity: 0.7;
+  animation: orb-drift-c 20s ease-in-out infinite;
+}
+
+.mg-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(62, 195, 123, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(62, 195, 123, 0.14) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: grid-pan 16s linear infinite;
+}
+
 .sticky-nav {
   position: sticky;
-  top: 0.9rem;
+  top: 0.5rem;
   z-index: 40;
   overflow-x: auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -126,6 +182,16 @@ body {
   background: rgba(62, 195, 123, 0.12);
 }
 
+.hero-header {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(62, 195, 123, 0.08), transparent 36%),
+    linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
 .profile-circle {
   width: clamp(5.2rem, 13vw, 7.8rem);
   aspect-ratio: 1;
@@ -192,6 +258,65 @@ body {
   padding: 0.95rem;
 }
 
+.section-carousel-wrap {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.carousel-track {
+  display: grid;
+  grid-template-columns: 0.38fr minmax(0, 2.24fr) 0.38fr;
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.carousel-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.35rem;
+  background: #fff;
+  transition: transform 250ms ease, box-shadow 250ms ease, opacity 250ms ease,
+    border-color 250ms ease;
+}
+
+.carousel-card-inner {
+  height: 100%;
+  padding: 1.05rem;
+}
+
+.carousel-card.active {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+  border-color: rgba(62, 195, 123, 0.2);
+}
+
+.carousel-card.side {
+  cursor: pointer;
+  opacity: 0.66;
+  transform: scale(0.9);
+  background: linear-gradient(180deg, #fdfdfd 0%, #f7f7f7 100%);
+}
+
+.carousel-card.side:hover {
+  opacity: 0.8;
+  transform: scale(0.92);
+  border-color: rgba(62, 195, 123, 0.3);
+}
+
 .section-stage-header {
   display: flex;
   align-items: center;
@@ -202,8 +327,8 @@ body {
 }
 
 .section-pane-scroll {
-  max-height: min(62vh, 650px);
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
   padding: 0rem 0.15rem 0.2rem;
 }
 
@@ -240,6 +365,61 @@ body {
   transform: translateY(0);
 }
 
+@keyframes orb-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(5%, 4%, 0) scale(1.06);
+  }
+  70% {
+    transform: translate3d(-4%, -3%, 0) scale(0.96);
+  }
+}
+
+@keyframes orb-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  45% {
+    transform: translate3d(-4.5%, 3%, 0) scale(1.05);
+  }
+  72% {
+    transform: translate3d(3.5%, -3%, 0) scale(0.95);
+  }
+}
+
+@keyframes orb-drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  38% {
+    transform: translate3d(3.5%, -4%, 0) scale(1.04);
+  }
+  74% {
+    transform: translate3d(-3%, 3.5%, 0) scale(0.96);
+  }
+}
+
+@keyframes grid-pan {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(48px, 48px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mg-orb,
+  .mg-grid {
+    animation: none;
+  }
+}
+
 @media (min-width: 768px) {
   .section-card {
     padding: 1.7rem;
@@ -251,13 +431,29 @@ body {
 }
 
 @media (max-width: 767px) {
+  .motion-bg {
+    inset: -4% -5%;
+  }
+
+  .mg-grid {
+    opacity: 0.1;
+  }
+
   .section-stage-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .section-pane-scroll {
-    max-height: 64vh;
+    max-height: none;
+  }
+
+  .carousel-track {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-card.side {
+    display: none;
   }
 
   .timeline-item {
