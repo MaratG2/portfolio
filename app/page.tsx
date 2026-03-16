@@ -15,8 +15,6 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const activeIndex = sections.findIndex((item) => item.id === activeSection);
-
   const selectSection = (id: string) => {
     setActiveSection(id);
     if (contentRef.current) {
