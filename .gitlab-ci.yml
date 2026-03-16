@@ -57,19 +57,14 @@ deploy_staging:
     - |
       ssh "$DEPLOY_USER_STAGING@$DEPLOY_HOST_STAGING" \
       "cd '$DEPLOY_PATH_STAGING' && \
-       chmod +x deploy/scripts/staging_deploy.sh deploy/scripts/certbot_renew.sh deploy/scripts/render_nginx_config.sh && \
+       chmod +x deploy/scripts/staging_deploy.sh && \
        IMAGE='$IMAGE_TAG' \
        CI_REGISTRY='$CI_REGISTRY' \
        CI_REGISTRY_USER='$CI_REGISTRY_USER' \
        CI_REGISTRY_PASSWORD='$CI_REGISTRY_PASSWORD' \
-       SERVER_NAME='$STAGING_SERVER_NAME' \
-       CERT_DOMAIN='$STAGING_CERT_DOMAIN' \
-       LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' \
-       NETWORK_NAME='${STAGING_NETWORK_NAME:-maratg2_net_staging}' \
-       PROXY_CONTAINER='${STAGING_PROXY_CONTAINER:-maratg2-staging-proxy}' \
-       STAGING_CONTAINER_NAME='${STAGING_APP_CONTAINER:-maratg2-app-staging}' \
-       HTTP_PORT='${STAGING_HTTP_PORT:-80}' \
-       HTTPS_PORT='${STAGING_HTTPS_PORT:-443}' \
+       NETWORK_NAME='${STAGING_NETWORK_NAME:-desire_internal}' \
+       DESIRE_INFRA_PATH='${STAGING_DESIRE_INFRA_PATH:-/opt/DesireInfra}' \
+       STAGING_CONTAINER_NAME='${STAGING_APP_CONTAINER:-marat-frontend-staging}' \
        ./deploy/scripts/staging_deploy.sh"
   environment:
     name: staging
@@ -92,20 +87,15 @@ deploy_production:
     - |
       ssh "$DEPLOY_USER_PRODUCTION@$DEPLOY_HOST_PRODUCTION" \
       "cd '$DEPLOY_PATH_PRODUCTION' && \
-       chmod +x deploy/scripts/blue_green_deploy.sh deploy/scripts/certbot_renew.sh deploy/scripts/render_nginx_config.sh && \
+       chmod +x deploy/scripts/blue_green_deploy.sh && \
        IMAGE='$IMAGE_TAG' \
        CI_REGISTRY='$CI_REGISTRY' \
        CI_REGISTRY_USER='$CI_REGISTRY_USER' \
        CI_REGISTRY_PASSWORD='$CI_REGISTRY_PASSWORD' \
-       SERVER_NAME='$PRODUCTION_SERVER_NAME' \
-       CERT_DOMAIN='$PRODUCTION_CERT_DOMAIN' \
-       LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' \
-       NETWORK_NAME='${PRODUCTION_NETWORK_NAME:-maratg2_net}' \
-       PROXY_CONTAINER='${PRODUCTION_PROXY_CONTAINER:-maratg2-proxy}' \
-       BLUE_CONTAINER_NAME='${PRODUCTION_BLUE_CONTAINER:-maratg2-app-blue}' \
-       GREEN_CONTAINER_NAME='${PRODUCTION_GREEN_CONTAINER:-maratg2-app-green}' \
-       HTTP_PORT='${PRODUCTION_HTTP_PORT:-80}' \
-       HTTPS_PORT='${PRODUCTION_HTTPS_PORT:-443}' \
+       NETWORK_NAME='${PRODUCTION_NETWORK_NAME:-desire_internal}' \
+       DESIRE_INFRA_PATH='${PRODUCTION_DESIRE_INFRA_PATH:-/opt/DesireInfra}' \
+       BLUE_CONTAINER_NAME='${PRODUCTION_BLUE_CONTAINER:-marat-frontend-blue}' \
+       GREEN_CONTAINER_NAME='${PRODUCTION_GREEN_CONTAINER:-marat-frontend-green}' \
        ./deploy/scripts/blue_green_deploy.sh"
   environment:
     name: production

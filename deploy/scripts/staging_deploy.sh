@@ -2,13 +2,9 @@
 set -euo pipefail
 
 DEPLOY_ROOT="${DEPLOY_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
-NETWORK_NAME="${NETWORK_NAME:-maratg2_net_staging}"
-PROXY_CONTAINER="${PROXY_CONTAINER:-maratg2-staging-proxy}"
-SERVER_NAME="${SERVER_NAME:?SERVER_NAME is required}"
-CERT_DOMAIN="${CERT_DOMAIN:?CERT_DOMAIN is required}"
-LETSENCRYPT_EMAIL="${LETSENCRYPT_EMAIL:?LETSENCRYPT_EMAIL is required}"
-HTTP_PORT="${HTTP_PORT:-8080}"
-HTTPS_PORT="${HTTPS_PORT:-8443}"
+NETWORK_NAME="${NETWORK_NAME:-desire_internal}"
+DESIRE_INFRA_PATH="${DESIRE_INFRA_PATH:?DESIRE_INFRA_PATH is required}"
+STAGING_CONTAINER_NAME="${STAGING_CONTAINER_NAME:-marat-frontend-staging}"
 
 IMAGE="${IMAGE:?IMAGE is required (example: registry.gitlab.com/group/project:sha)}"
 
@@ -22,24 +18,15 @@ fi
 
 docker network inspect "$NETWORK_NAME" >/dev/null 2>&1 || docker network create "$NETWORK_NAME"
 
-mkdir -p deploy/nginx/generated deploy/certbot/conf deploy/certbot/www deploy/logs
-chmod +x deploy/scripts/render_nginx_config.sh deploy/scripts/certbot_renew.sh
-
-export UPSTREAM_NAME="app-staging"
-export SERVER_NAME
-export CERT_DOMAIN
-./deploy/scripts/render_nginx_config.sh \
-  deploy/nginx/http-only.conf.template \
-  deploy/nginx/generated/default.conf
-
-export NETWORK_NAME PROXY_CONTAINER_NAME="$PROXY_CONTAINER" HTTP_PORT HTTPS_PORT
-docker compose -f deploy/docker-compose.proxy.yml up -d proxy
+if [[ ! -x "${DESIRE_INFRA_PATH}/scripts/nginx-reload.sh" ]]; then
+  echo "[staging] ERROR: ${DESIRE_INFRA_PATH}/scripts/nginx-reload.sh not found or not executable"
+  exit 1
+fi
 
 export IMAGE
 docker compose -f deploy/docker-compose.staging.yml up -d app-staging
 
 echo "[staging] Waiting for app health"
-STAGING_CONTAINER_NAME="${STAGING_CONTAINER_NAME:-maratg2-app-staging}"
 for i in $(seq 1 40); do
   STATUS="$(docker inspect --format='{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$STAGING_CONTAINER_NAME" 2>/dev/null || echo "missing")"
   if [[ "$STATUS" == "healthy" ]]; then
@@ -52,25 +39,7 @@ for i in $(seq 1 40); do
   sleep 3
 done
 
-if [[ ! -f "deploy/certbot/conf/live/${CERT_DOMAIN}/fullchain.pem" ]]; then
-  docker compose -f deploy/docker-compose.proxy.yml run --rm certbot certonly \
-    --webroot -w /var/www/certbot \
-    -d "$CERT_DOMAIN" \
-    --email "$LETSENCRYPT_EMAIL" \
-    --agree-tos --no-eff-email --non-interactive
-fi
-
-docker compose -f deploy/docker-compose.proxy.yml run --rm certbot renew --webroot -w /var/www/certbot --quiet || true
-
-./deploy/scripts/render_nginx_config.sh \
-  deploy/nginx/default.conf.template \
-  deploy/nginx/generated/default.conf
-
-docker compose -f deploy/docker-compose.proxy.yml up -d proxy
-docker exec "$PROXY_CONTAINER" nginx -s reload
-
-# set up automatic cert renewal every 12 hours (idempotent)
-CRON_LINE="17 */12 * * * cd '$DEPLOY_ROOT' && NETWORK_NAME='$NETWORK_NAME' PROXY_CONTAINER='$PROXY_CONTAINER' CERT_DOMAIN='$CERT_DOMAIN' SERVER_NAME='$SERVER_NAME' HTTP_PORT='$HTTP_PORT' HTTPS_PORT='$HTTPS_PORT' ./deploy/scripts/certbot_renew.sh >> '$DEPLOY_ROOT/deploy/logs/certbot-renew.log' 2>&1"
-(crontab -l 2>/dev/null | grep -Fv "deploy/scripts/certbot_renew.sh"; echo "$CRON_LINE") | crontab -
+echo "[staging] Ensuring shared edge nginx uses marat staging upstream"
+"${DESIRE_INFRA_PATH}/scripts/nginx-reload.sh"
 
 echo "[staging] Deployment done"

@@ -1,7 +1,7 @@
 services:
   app-green:
     image: ${IMAGE:?IMAGE is required}
-    container_name: ${GREEN_CONTAINER_NAME:-maratg2-app-green}
+    container_name: ${GREEN_CONTAINER_NAME:-marat-frontend-green}
     restart: always
     environment:
       NODE_ENV: production
@@ -25,4 +25,4 @@ services:
 networks:
   maratg2_net:
     external: true
-    name: ${NETWORK_NAME:-maratg2_net}
+    name: ${NETWORK_NAME:-desire_internal}
