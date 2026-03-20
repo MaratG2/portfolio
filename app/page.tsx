@@ -263,7 +263,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col px-5 pb-16 pt-3 md:px-10 md:pt-4">
+    <main className="relative z-10 flex w-full flex-col px-2 pb-16 pt-3 md:px-4 md:pt-4">
       <div className="motion-bg" aria-hidden="true">
         <span className="mg-orb orb-1" />
         <span className="mg-orb orb-2" />
@@ -271,57 +271,59 @@ export default function Home() {
         <span className="mg-grid" />
       </div>
 
-      <header className="hero-header reveal in-view relative mb-4 grid items-center gap-3 rounded-3xl p-3 md:grid-cols-[1.45fr_auto] md:p-4">
-        <div>
-          <h1 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
-            Марат Газизулин
-            <span className="block text-[rgb(62,195,123)]">Gen AI Developer</span>
-          </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-black/70">
-            Проектирую и внедряю AI-решения, которые приносят бизнес-результат: от MVP
-            до production-систем. Фокус — GenAI, full-stack, DevOps.
-          </p>
+      <div className="matched-active-width">
+        <header className="hero-header reveal in-view relative mb-4 grid items-center gap-3 rounded-3xl p-3 md:grid-cols-[1.45fr_auto] md:p-4">
+          <div>
+            <h1 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
+              Марат Газизулин
+              <span className="block text-[rgb(62,195,123)]">Gen AI Developer</span>
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-black/70">
+              Проектирую и внедряю AI-решения, которые приносят бизнес-результат: от MVP
+              до production-систем. Фокус — GenAI, full-stack, DevOps.
+            </p>
 
-          <div className="mt-3 flex flex-wrap gap-2 text-xs md:text-sm">
-            <a className="chip" href="tel:+79128711665">
-              +7 912 871-16-65
-            </a>
-            <a className="chip" href="https://t.me/maratg2" target="_blank" rel="noreferrer">
-              Telegram: @maratg2
-            </a>
-            <a className="chip" href="mailto:maratg2develop@gmail.com">
-              maratg2develop@gmail.com
-            </a>
+            <div className="mt-3 flex flex-wrap gap-2 text-xs md:text-sm">
+              <a className="chip" href="tel:+79128711665">
+                +7 912 871-16-65
+              </a>
+              <a className="chip" href="https://t.me/maratg2" target="_blank" rel="noreferrer">
+                Telegram: @maratg2
+              </a>
+              <a className="chip" href="mailto:maratg2develop@gmail.com">
+                maratg2develop@gmail.com
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center justify-center p-1">
-          <Image
-            src="/photo.png"
-            alt="Фото Марата Газизулина"
-            width={144}
-            height={144}
-            className="h-28 w-28 rounded-full object-cover shadow-[0_20px_40px_rgba(0,0,0,0.26)] md:h-36 md:w-36"
-            priority
-          />
-        </div>
-      </header>
+          <div className="flex items-center justify-center p-1">
+            <Image
+              src="/photo.png"
+              alt="Фото Марата Газизулина"
+              width={144}
+              height={144}
+              className="h-28 w-28 rounded-full object-cover shadow-[0_20px_40px_rgba(0,0,0,0.26)] md:h-36 md:w-36"
+              priority
+            />
+          </div>
+        </header>
 
-      <nav className="sticky-nav mb-4">
-        <ul className="flex min-w-max items-center gap-2">
-          {sections.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                onClick={() => selectSection(item.id)}
-                className={`nav-pill ${activeSection === item.id ? "active" : ""}`}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <nav className="sticky-nav mb-4">
+          <ul className="flex min-w-max items-center gap-2">
+            {sections.map((item) => (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  onClick={() => selectSection(item.id)}
+                  className={`nav-pill ${activeSection === item.id ? "active" : ""}`}
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
 
       <section className="section-carousel-wrap">
         <div className="carousel-track">
