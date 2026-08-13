@@ -1,28 +1,30 @@
 services:
-  app-staging:
-    image: ${IMAGE:?IMAGE is required}
-    container_name: ${STAGING_CONTAINER_NAME:-marat-frontend-staging}
-    restart: always
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: runner
+    restart: unless-stopped
     environment:
       NODE_ENV: production
-      PORT: 3000
+      PORT: "3000"
       HOSTNAME: 0.0.0.0
-    networks:
-      - maratg2_net
+    expose:
+      - "3000"
     healthcheck:
       test:
-        [
-          "CMD",
-          "node",
-          "-e",
-          "const http=require('http');const req=http.get('http://127.0.0.1:3000/api/health',res=>process.exit(res.statusCode===200?0:1));req.on('error',()=>process.exit(1));",
-        ]
+        - CMD
+        - node
+        - -e
+        - >-
+          const http=require('http');const req=http.get('http://127.0.0.1:3000/api/health',res=>process.exit(res.statusCode===200?0:1));req.on('error',()=>process.exit(1));
       interval: 15s
       timeout: 5s
       retries: 6
       start_period: 20s
+    networks:
+      - coolify
 
 networks:
-  maratg2_net:
+  coolify:
     external: true
-    name: ${NETWORK_NAME:-desire_internal}
