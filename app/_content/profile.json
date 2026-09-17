@@ -1,0 +1,184 @@
+{
+  "ru": {
+    "name": "Марат Газизулин",
+    "specialization": "AI-агенты и автоматизация процессов",
+    "description": "Марат Газизулин, ML Engineer. AI-агенты, автоматизация бизнес-процессов, архитектура и разработка AI-систем.",
+    "headline": "Строю AI-системы, которые автоматизируют бизнес-процессы",
+    "introduction": "Соединяю машинное обучение, разработку и понимание бизнеса. Проектирую системы целиком: от архитектуры и интеграций до приложения, которым удобно пользоваться.",
+    "nav": [
+      "Подход",
+      "Опыт",
+      "Компетенции"
+    ],
+    "contactAction": "Связаться",
+    "resumeAction": "Скачать резюме",
+    "skip": "Перейти к содержимому",
+    "aboutTitle": "От архитектуры\nдо внедрения",
+    "aboutNote": "Агенты. Интеграции. Рабочие процессы.",
+    "experienceTitle": "Инженерный опыт",
+    "experience": [
+      {
+        "company": "ORO (ex-Kantar)",
+        "role": "ML Engineer",
+        "period": "Апрель 2026 — настоящее время",
+        "description": "Техническая реализация AI-инструментов для автоматизации бизнес-процессов компании с командой из 250 человек."
+      },
+      {
+        "company": "krem.digital",
+        "role": "ML Engineer → Lead ML Engineer → CTO",
+        "period": "Январь 2024 — март 2026",
+        "description": "Развивал с нуля Artillect, платформу генеративных AI-сервисов: full-stack, backend, AI-пайплайны и инфраструктуру. Позже отвечал за техническое планирование, найм и координацию команды. Вёл интерактивный проект с AI-аватарами для ЦИПР 2025."
+      },
+      {
+        "company": "Adventarium",
+        "role": "ML Engineer",
+        "period": "Февраль — август 2025",
+        "description": "Разрабатывал Telegram- и Discord-ботов для ролевой игры с AI-ведущим: оркестрация, Python API, база данных, лимиты и подписки."
+      },
+      {
+        "company": "Model Agency",
+        "role": "Lead ML Engineer",
+        "period": "Февраль — июнь 2025",
+        "description": "Создавал пайплайны генерации fashion-контента: консистентные персонажи, управление позами, обучение LoRA и GPU-окружения."
+      },
+      {
+        "company": "Manka Games / ИжГТУ / krem.digital / 23:23 team",
+        "role": "Software Engineer · C# / Unity",
+        "period": "Май 2021 — июнь 2023",
+        "description": "Разрабатывал игровые и интерактивные системы: gameplay, multiplayer, инструменты и backend-интеграции. Инженерная база, на которой строится моя работа с AI."
+      }
+    ],
+    "skillsTitle": "Системное мышление.\nПрактическая реализация.",
+    "skills": [
+      {
+        "title": "Агенты и автоматизация",
+        "description": "Декомпозиция задач, многоэтапные процессы, оркестрация и интеграция инструментов.",
+        "tools": "AI agents / Python / Dify / n8n"
+      },
+      {
+        "title": "Разработка систем",
+        "description": "Архитектура, API и данные. От серверной логики до интерфейса для пользователя.",
+        "tools": "FastAPI / PostgreSQL / React / Next.js"
+      },
+      {
+        "title": "Машинное обучение",
+        "description": "Выбор и интеграция моделей, работа с данными и оценка качества решений.",
+        "tools": "Python / Pandas / SQL / Evaluation"
+      },
+      {
+        "title": "Генеративные медиа",
+        "description": "Пайплайны генерации изображений, видео и аудио. Настройка моделей под задачу.",
+        "tools": "ComfyUI / LoRA / Diffusion models"
+      },
+      {
+        "title": "Внедрение",
+        "description": "Воспроизводимые окружения, интеграция в рабочие процессы и техническая документация.",
+        "tools": "Docker / Git / CI/CD / REST API"
+      }
+    ],
+    "educationTitle": "Образование",
+    "education": "ИжГТУ им. М. Т. Калашникова · Программная инженерия, бакалавр, 2024.",
+    "course": "OTUS · Unity Game Developer Professional, 2023.",
+    "languages": "Русский · родной / Английский · B2",
+    "contactTitle": "Давайте создадим\nчто-то полезное",
+    "contactText": "Открыт к разговору о роли ML Engineer, агентных системах и автоматизации бизнеса.",
+    "emailLabel": "Написать на почту",
+    "footer": "Марат Газизулин",
+    "pause": "Остановить анимацию",
+    "play": "Включить анимацию",
+    "sculpture": "Интерактивная абстрактная композиция",
+    "motionHint": "Движение курсора меняет ракурс",
+    "backTop": "Наверх"
+  },
+  "en": {
+    "name": "Marat Gazizulin",
+    "specialization": "AI Agents & Process Automation",
+    "description": "Marat Gazizulin, ML Engineer. AI agents, business process automation, and end-to-end AI systems engineering.",
+    "headline": "I build AI systems that automate business processes",
+    "introduction": "I bring together machine learning, software engineering and business context. I build complete systems, from architecture and integrations to applications people can use.",
+    "nav": [
+      "Approach",
+      "Experience",
+      "Expertise"
+    ],
+    "contactAction": "Get in touch",
+    "resumeAction": "Download résumé",
+    "skip": "Skip to content",
+    "aboutTitle": "From architecture\nto implementation",
+    "aboutNote": "Agents. Integrations. Workflows.",
+    "experienceTitle": "Engineering experience",
+    "experience": [
+      {
+        "company": "ORO (ex-Kantar)",
+        "role": "ML Engineer",
+        "period": "April 2026 — present",
+        "description": "Technical implementation of AI tools for business process automation at a company of 250 people."
+      },
+      {
+        "company": "krem.digital",
+        "role": "ML Engineer → Lead ML Engineer → CTO",
+        "period": "January 2024 — March 2026",
+        "description": "Built Artillect, a generative AI services platform, across full-stack development, backend, AI pipelines and infrastructure. Later took on technical planning, hiring and team coordination. Led an interactive AI avatar project for CIPR 2025."
+      },
+      {
+        "company": "Adventarium",
+        "role": "ML Engineer",
+        "period": "February — August 2025",
+        "description": "Built Telegram and Discord role-playing bots with an AI game master: orchestration, Python APIs, database integration, usage limits and subscriptions."
+      },
+      {
+        "company": "Model Agency",
+        "role": "Lead ML Engineer",
+        "period": "February — June 2025",
+        "description": "Developed fashion-content generation pipelines: consistent characters, pose control, LoRA training and GPU environments."
+      },
+      {
+        "company": "Manka Games / ISTU / krem.digital / 23:23 team",
+        "role": "Software Engineer · C# / Unity",
+        "period": "May 2021 — June 2023",
+        "description": "Built game and interactive systems: gameplay, multiplayer, tooling and backend integrations. The software engineering foundation behind my AI work."
+      }
+    ],
+    "skillsTitle": "Systems thinking.\nHands-on engineering.",
+    "skills": [
+      {
+        "title": "Agents & automation",
+        "description": "Task decomposition, multi-step workflows, orchestration and tool integration.",
+        "tools": "AI agents / Python / Dify / n8n"
+      },
+      {
+        "title": "Systems development",
+        "description": "Architecture, APIs and data. From backend logic to user-facing applications.",
+        "tools": "FastAPI / PostgreSQL / React / Next.js"
+      },
+      {
+        "title": "Machine learning",
+        "description": "Model selection and integration, data processing and quality evaluation.",
+        "tools": "Python / Pandas / SQL / Evaluation"
+      },
+      {
+        "title": "Generative media",
+        "description": "Image, video and audio generation pipelines. Adapting models to the task.",
+        "tools": "ComfyUI / LoRA / Diffusion models"
+      },
+      {
+        "title": "Delivery",
+        "description": "Reproducible environments, workflow integration and technical documentation.",
+        "tools": "Docker / Git / CI/CD / REST API"
+      }
+    ],
+    "educationTitle": "Education",
+    "education": "Kalashnikov Izhevsk State Technical University · Bachelor's degree, Software Engineering, 2024.",
+    "course": "OTUS · Unity Game Developer Professional, 2023.",
+    "languages": "Russian · native / English · B2",
+    "contactTitle": "Let's build\nsomething useful",
+    "contactText": "Open to conversations about ML Engineer roles, agent systems and business automation.",
+    "emailLabel": "Send an email",
+    "footer": "Marat Gazizulin",
+    "pause": "Pause animation",
+    "play": "Play animation",
+    "sculpture": "Interactive abstract composition",
+    "motionHint": "Move your pointer to explore",
+    "backTop": "Back to top"
+  }
+}

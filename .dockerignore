@@ -10,3 +10,6 @@ pnpm-debug.log*
 coverage
 dist
 README.md
+docs/career
+output
+scripts/create-cv.py

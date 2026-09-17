@@ -26,11 +26,13 @@ node_modules
 target
 dist
 logs
-public
+/public/*
+!/public/cv/
 .cache
 .vscode
 .DS_Store
 .idea
 .next
+.next-public
 yarn-error.log
 npm-debug.log
