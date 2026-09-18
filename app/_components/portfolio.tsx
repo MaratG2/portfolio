@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { links, profiles, type Language } from "../_content/profile";
-import Sculpture from "./sculpture";
-import PageMotion from "./page-motion";
+import { ResumeMotion, MotionToggle, PortraitDepth, MagneticLink, Reveal, SectionNav, ExperiencePanel } from "./resume-motion";
 
 export function profileMetadata(lang: Language): Metadata {
   const p = profiles[lang];
@@ -16,80 +15,83 @@ export function profileMetadata(lang: Language): Metadata {
 }
 
 export function Arrow({ down = false }: { down?: boolean }) {
-  return <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={down ? { transform: "rotate(135deg)" } : undefined}><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  return <svg className={`arrow-icon ${down ? "arrow-down" : ""}`} viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
 export default function Portfolio({ lang }: { lang: Language }) {
   const p = profiles[lang];
-  const ids = ["approach", "experience", "expertise"];
+  const ru = lang === "ru";
+  const nav = [
+    { id: "about", label: ru ? "О себе" : "About" },
+    { id: "experience", label: ru ? "Опыт работы" : "Experience" },
+    { id: "expertise", label: ru ? "Компетенции" : "Expertise" },
+    { id: "contact", label: ru ? "Контакты" : "Contact" },
+  ];
   const person = { "@context": "https://schema.org", "@type": "Person", name: p.name, alternateName: "MaratG2", jobTitle: "ML Engineer", sameAs: [links.github, links.linkedin, links.hh], knowsLanguage: ["Russian", "English"] };
-  return <>
+  return <ResumeMotion>
     <a className="skip-link" href="#main">{p.skip}</a>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
-    <PageMotion />
-    <header className="site-header" id="top">
-      <div className="header-inner">
-        <Link href={lang === "ru" ? "/" : "/en"} className="wordmark">{p.name}<span className="wordmark-dot" aria-hidden="true" /></Link>
-        <nav className="section-nav" aria-label={lang === "ru" ? "Разделы" : "Sections"}>{ids.map((id, i) => <a key={id} href={`#${id}`}>{p.nav[i]}</a>)}</nav>
-        <nav className="language-nav" aria-label={lang === "ru" ? "Язык" : "Language"}>
-          <Link href="/" hrefLang="ru" lang="ru" aria-current={lang === "ru" ? "page" : undefined}>RU</Link>
-          <Link href="/en" hrefLang="en" lang="en" aria-current={lang === "en" ? "page" : undefined}>EN</Link>
-        </nav>
-        <a href="#contact" className="header-contact" aria-label={p.contactAction}><Arrow /></a>
+    <div className="ambient-scene" aria-hidden="true"><div className="ambient-light light-one" /><div className="ambient-light light-two" /><div className="ambient-ribbon ribbon-one" /><div className="ambient-ribbon ribbon-two" /></div>
+    <header className="site-header page-width" id="top">
+      <Link href={ru ? "/" : "/en"} className="wordmark"><span className="monogram" aria-hidden="true">m.</span><span>{p.name}</span></Link>
+      <div className="header-tools">
+        <a href={links.github} className="header-social">GitHub<Arrow /></a>
+        <MotionToggle label={ru ? "Выключить анимацию" : "Turn animation off"} play={ru ? "Включить анимацию" : "Turn animation on"} />
+        <nav className="language-nav" aria-label={ru ? "Язык" : "Language"}><Link href="/" hrefLang="ru" lang="ru" aria-current={ru ? "page" : undefined}>RU</Link><Link href="/en" hrefLang="en" lang="en" aria-current={!ru ? "page" : undefined}>EN</Link></nav>
       </div>
     </header>
-    <main id="main">
-      <section className="hero page-width" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <h1 id="hero-title"><span>ML</span> Engineer</h1>
-          <p className="specialization">{p.specialization}</p>
-          <p className="hero-statement">{p.headline}</p>
-          <div className="hero-actions">
-            <a href={links.email} className="button button-primary">{p.contactAction}<Arrow /></a>
-            <a href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download className="button button-secondary">{p.resumeAction}<Arrow down /></a>
+    <main className="page-width" id="main">
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-sheen" aria-hidden="true" />
+        <div className="hero-main">
+          <div className="hero-copy">
+            <h1 id="hero-title"><span className="headline-word">ML</span> <span className="headline-word">Engineer</span></h1>
+            <p className="specialization">{p.specialization}</p>
+            <p className="hero-statement">{p.headline}</p>
+            <div className="hero-actions"><MagneticLink href={links.email} className="button button-primary">{p.contactAction}<Arrow /></MagneticLink><MagneticLink href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download className="button button-secondary">{p.resumeAction}<Arrow down /></MagneticLink></div>
+          </div>
+          <div className="hero-person">
+            <PortraitDepth><div className="portrait-mat"><Image src="/photo.png" alt={p.name} width={232} height={268} priority sizes="(max-width: 680px) 116px, 232px" className="portrait" /></div></PortraitDepth>
+            <div className="person-links"><a href={links.telegram}>Telegram<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a></div>
           </div>
         </div>
-        <Sculpture pauseLabel={p.pause} playLabel={p.play} label={p.sculpture} hint={p.motionHint} />
-        <div className="hero-bottom">
-          <a href="#approach" className="scroll-link">{p.nav[0]}<Arrow down /></a>
-          <div className="social-links"><a href={links.github}>GitHub<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a></div>
+        <div className="hero-intro" id="about"><h2>{ru ? "О себе" : "About me"}</h2><p>{p.introduction}</p></div>
+      </section>
+
+      <SectionNav items={nav} />
+
+      <div className="resume-content">
+        <section className="experience-section" id="experience" aria-labelledby="experience-title">
+          <Reveal><div className="section-heading"><h2 id="experience-title">{ru ? "Опыт работы" : "Experience"}</h2><span className="section-aside">{ru ? "Разработка и техническое лидерство" : "Engineering & technical leadership"}</span></div></Reveal>
+          <div className="experience-list">{p.experience.map((item, i) =>
+            <Reveal key={item.company} delay={i * 35}><ExperiencePanel initialOpen={i < 2} heading={<><h3>{item.company}</h3><p className="job-role">{item.role}</p></>} meta={item.period.replace(/—|–/g, "-")}>
+              <p>{item.description}</p>
+            </ExperiencePanel></Reveal>
+          )}</div>
+        </section>
+        <aside className="resume-aside">
+          <Reveal><section className="education-panel" aria-labelledby="education-title"><h2 id="education-title">{p.educationTitle}</h2>
+            <div className="education-entry"><span className="education-year">2024</span><h3>{ru ? "Программная инженерия" : "Software Engineering"}</h3><p>{ru ? "ИжГТУ им. М. Т. Калашникова" : "Kalashnikov ISTU"}</p><span>{ru ? "Бакалавр" : "Bachelor's degree"}</span></div>
+            <div className="education-entry"><span className="education-year">2023</span><h3>Unity Game Developer</h3><p>OTUS · Professional</p></div>
+            <div className="language-list"><div><span>{ru ? "Русский" : "Russian"}</span><strong>{ru ? "Родной" : "Native"}</strong></div><div><span>{ru ? "Английский" : "English"}</span><strong>B2</strong></div></div>
+          </section></Reveal>
+          <a className="aside-cv" href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download><div><strong>{ru ? "Резюме всегда под рукой" : "Take the résumé with you"}</strong><span>{ru ? "PDF · 2 страницы" : "PDF · 2 pages"}</span></div><Arrow down /></a>
+        </aside>
+      </div>
+
+      <section id="expertise" className="expertise-section" aria-labelledby="expertise-title">
+        <Reveal><div className="section-heading"><h2 id="expertise-title">{ru ? "Компетенции" : "Expertise"}</h2></div></Reveal>
+        <div className="expertise-layout">
+          <div className="expertise-statement"><Reveal><p>{ru ? "Думаю системой.\nДовожу до результата." : "Think in systems.\nBuild to deliver."}</p></Reveal><div className="capability-orbit" aria-hidden="true"><span /><span /><span /><i /></div></div>
+          <div className="skills-list">{p.skills.map(skill => <Reveal key={skill.title}><article className="skill-item"><h3>{skill.title}</h3><p>{skill.description}</p><ul className="tech-list">{skill.tools.split(" / ").map(tool => <li key={tool}>{tool}</li>)}</ul></article></Reveal>)}</div>
         </div>
       </section>
-      <section className="about page-width section-space" id="approach" aria-labelledby="about-title">
-        <div className="section-heading"><h2 id="about-title" data-reveal>{p.aboutTitle}</h2></div>
-        <div className="about-body">
-          <p className="large-copy">{p.introduction}</p>
-          <div className="person-note">
-            <Image src="/photo.png" alt={p.name} width={88} height={88} className="portrait" sizes="88px" />
-            <div><p>{p.name}</p><span>{p.aboutNote}</span></div>
-          </div>
-        </div>
-      </section>
-      <section className="experience page-width section-space" id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title" data-reveal>{p.experienceTitle}</h2>
-        <div className="experience-list">{p.experience.map((item, i) =>
-          <article className={`experience-item ${i === 0 ? "current-experience" : ""}`} key={item.company}>
-            <div className="experience-meta"><p>{item.period}</p><h3>{item.company}</h3></div>
-            <div className="experience-body"><h4>{item.role}</h4><p>{item.description}</p></div>
-          </article>
-        )}</div>
-      </section>
-      <section className="expertise-wrap" id="expertise" aria-labelledby="expertise-title">
-        <div className="expertise page-width section-space">
-          <div className="expertise-heading"><h2 id="expertise-title" data-reveal>{p.skillsTitle}</h2><div className="expertise-symbol" aria-hidden="true"><span /><span /><span /></div></div>
-          <div className="skills-list">{p.skills.map(skill => <article className="skill-item" key={skill.title}><h3>{skill.title}</h3><p>{skill.description}</p><span>{skill.tools}</span></article>)}</div>
-        </div>
-      </section>
-      <section className="education page-width" aria-labelledby="education-title">
-        <h2 id="education-title">{p.educationTitle}</h2>
-        <div><p>{p.education}</p><p>{p.course}</p><p className="languages">{p.languages}</p></div>
-      </section>
-      <section className="contact page-width section-space" id="contact" aria-labelledby="contact-title">
-        <div><h2 id="contact-title" data-reveal>{p.contactTitle}</h2><p>{p.contactText}</p></div>
-        <a href={links.email} className="contact-orbit" aria-label={p.emailLabel}><Arrow /></a>
-        <div className="contact-bottom"><a href={links.email} className="email-link">maratg2develop@gmail.com</a><div className="social-links"><a href={links.telegram}>Telegram<Arrow /></a><a href={links.hh}>HH.ru<Arrow /></a><a href={links.github}>GitHub<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a></div></div>
-      </section>
+
+      <Reveal><section className="contact-section" id="contact" aria-labelledby="contact-title">
+        <div className="contact-main"><div><h2 id="contact-title">{ru ? "Обсудим вашу задачу" : "Let's talk about your team"}</h2><p>{p.contactText}</p></div><MagneticLink href={links.email} className="contact-arrow" ><span className="sr-only">{p.emailLabel}</span><Arrow /></MagneticLink></div>
+        <div className="contact-bottom"><a href={links.email} className="email-link">maratg2develop@gmail.com</a><div className="social-links"><a href={links.telegram}>Telegram<Arrow /></a><a href={links.github}>GitHub<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a><a href={links.hh}>HH.ru<Arrow /></a></div></div>
+      </section></Reveal>
     </main>
     <footer className="site-footer page-width"><span>{p.footer} · ML Engineer</span><a href="#top">{p.backTop}<Arrow /></a></footer>
-  </>;
+  </ResumeMotion>;
 }

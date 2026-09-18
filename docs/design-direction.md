@@ -1,15 +1,23 @@
-# Portfolio direction
+# Résumé direction
 
-Visitor mode: Persuade. Primary routes: / and /en.
+Visitor mode: Persuade. Routes: / and /en.
+
+The user rejected the large decorative 3D hero and requested a stronger résumé page based on the earlier useful layout. This supersedes the sculptural concept.
 
 ## Direction contract
-THESIS: a personal engineering portfolio with the clarity of an editorial profile and the spatial craft of an interactive sculpture.
-OWN-WORLD: warm ivory, deep botanical green and pale sage; generous whitespace, sharp type, fine rules and minimal containers.
-STORY: establish the role, show the engineer's approach and career, then invite a conversation.
-FIRST VIEWPORT: name and navigation above a two-column hero; large ML Engineer headline and localized specialization on the left, a green interlocking 3D sculpture on the right. Contact and résumé actions sit below the statement.
-FORM: editorial profile with an interactive geometric sculpture. The Impeccable engine failed to download, so context and concept-seed could not run. Direction is selected directly within the user's explicit redesign authorization; no seeded assignment or approved image comp is claimed.
-SIGNATURE: gently orbiting interlocking forms respond to pointer position; a pause control and reduced-motion state provide control. Content does not depend on animation.
+
+THESIS: a personal résumé with immediate role clarity, a real portrait and an efficient career narrative.
+OWN-WORLD: white résumé panels over a light green field; dark green-black typography, softly layered surfaces, restrained sage accents.
+STORY: understand the engineer's role, scan the career, inspect relevant experience, download the résumé or contact Marat.
+FIRST VIEWPORT: compact identity header; one profile panel with a single-line ML Engineer heading, localized specialization, portrait, statement, contact and PDF actions. About copy is part of the same panel. The career section begins directly below the floating section navigator.
+FORM: an evolution of the user's original résumé layout, explicitly requested after rejection of the large 3D object. The Impeccable runtime could not download; no engine-generated assignment or approved image comp is claimed.
+SIGNATURE: the profile arrives in a coordinated sequence; pointer-driven portrait depth and magnetic buttons provide tactile feedback; native experience panels animate their expansion; the section navigator tracks reading position. Motion has a global off switch and reduced-motion support.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 
-Asset provenance: public/photo.png is the user's pre-existing portrait. The sculpture is rendered geometry, not a generated raster.
+## Boundaries
 
+No current-employer details beyond the approved experience sentence. No location or current-job strip. No decorative 3D object competing with the résumé. Earlier public experience and education remain intact.
+
+## Assets
+
+`public/photo.png` is the user's pre-existing portrait; it has not been generated or altered. All other decoration is CSS geometry and motion.

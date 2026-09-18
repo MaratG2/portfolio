@@ -9,10 +9,15 @@ Russian portfolio: `/`. English portfolio: `/en`.
 Both pages render on the server and share approved public content in
 `app/_content/profile.json`, exported through `profile.ts`. The same JSON generates
 the CV PDFs. Current-employer details are restricted by `docs/career/evidence-register.md`.
-The hero uses a dynamically loaded Three.js composition, with a pause control,
-reduced-motion support and a static fallback. Navigation and content work without JavaScript.
+The résumé uses Motion for spring-based portrait depth and button feedback, native
+expandable experience panels, scroll-aware navigation and progressive entry transitions.
+The header motion control disables decorative movement; reduced-motion preferences are
+honored. Content, navigation and experience disclosures work without JavaScript.
 
 Run `pnpm dev`, `pnpm lint`, and `pnpm build` for development and verification.
+
+For an isolated local preview, set `NEXT_DIST_DIR=.next-public` for both the build
+and start commands. Deployment defaults to the standard `.next` directory.
 
 Two-page CV PDFs are available in `public/cv` and linked from the matching language
 page. Editable copy is in `docs/career/profile-copy.md`; the PDF generation source is
