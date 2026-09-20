@@ -1,4 +1,5 @@
 import Image from "next/image";
+import portraitPhoto from "../../public/photo.png";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { links, profiles, type Language } from "../_content/profile";
@@ -21,6 +22,7 @@ export function Arrow({ down = false }: { down?: boolean }) {
 export default function Portfolio({ lang }: { lang: Language }) {
   const p = profiles[lang];
   const ru = lang === "ru";
+  const resumeHref = ru ? "/resume" : "/en/resume";
   const nav = [
     { id: "about", label: ru ? "О себе" : "About" },
     { id: "experience", label: ru ? "Опыт работы" : "Experience" },
@@ -34,7 +36,7 @@ export default function Portfolio({ lang }: { lang: Language }) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
     <div className="ambient-scene" aria-hidden="true"><div className="ambient-light light-one" /><div className="ambient-light light-two" /><div className="ambient-ribbon ribbon-one" /><div className="ambient-ribbon ribbon-two" /></div>
     <header className="site-header page-width" id="top">
-      <Link href={ru ? "/" : "/en"} className="wordmark"><span className="monogram" aria-hidden="true">m.</span><span>{p.name}</span></Link>
+      <Link href={ru ? "/" : "/en"} className="wordmark" aria-label={p.name}><span className="monogram" aria-hidden="true">m.</span></Link>
       <div className="header-tools">
         <a href={links.github} className="header-social">GitHub<Arrow /></a>
         <MotionToggle label={ru ? "Выключить анимацию" : "Turn animation off"} play={ru ? "Включить анимацию" : "Turn animation on"} />
@@ -46,14 +48,14 @@ export default function Portfolio({ lang }: { lang: Language }) {
         <div className="hero-sheen" aria-hidden="true" />
         <div className="hero-main">
           <div className="hero-copy">
-            <h1 id="hero-title"><span className="headline-word">ML</span> <span className="headline-word">Engineer</span></h1>
-            <p className="specialization">{p.specialization}</p>
-            <p className="hero-statement">{p.headline}</p>
-            <div className="hero-actions"><MagneticLink href={links.email} className="button button-primary">{p.contactAction}<Arrow /></MagneticLink><MagneticLink href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download className="button button-secondary">{p.resumeAction}<Arrow down /></MagneticLink></div>
+            <h1 id="hero-title">{p.name.split(" ").map(part => <span className="headline-word" key={part}>{part}</span>)}</h1>
+            <p className="specialization">ML Engineer</p>
+            <div className="hero-statement">{p.heroSummary.map(line => <p key={line}>{line}</p>)}</div>
+            <div className="hero-actions"><MagneticLink href={links.email} className="button button-primary">{p.contactAction}<Arrow /></MagneticLink><MagneticLink href={resumeHref} className="button button-secondary">{p.resumeAction}<Arrow /></MagneticLink></div>
           </div>
           <div className="hero-person">
-            <PortraitDepth><div className="portrait-mat"><Image src="/photo.png" alt={p.name} width={232} height={268} priority sizes="(max-width: 680px) 116px, 232px" className="portrait" /></div></PortraitDepth>
-            <div className="person-links"><a href={links.telegram}>Telegram<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a></div>
+            <PortraitDepth><div className="portrait-mat"><Image src={portraitPhoto} alt={p.name} width={232} height={268} priority sizes="(max-width: 680px) 116px, 232px" className="portrait" /></div></PortraitDepth>
+            <div className="person-links"><a href={links.email}>Mail<Arrow /></a><a href={links.telegram}>Telegram<Arrow /></a><a href={links.linkedin}>LinkedIn<Arrow /></a></div>
           </div>
         </div>
         <div className="hero-intro" id="about"><h2>{ru ? "О себе" : "About me"}</h2><p>{p.introduction}</p></div>
@@ -63,20 +65,20 @@ export default function Portfolio({ lang }: { lang: Language }) {
 
       <div className="resume-content">
         <section className="experience-section" id="experience" aria-labelledby="experience-title">
-          <Reveal><div className="section-heading"><h2 id="experience-title">{ru ? "Опыт работы" : "Experience"}</h2><span className="section-aside">{ru ? "Разработка и техническое лидерство" : "Engineering & technical leadership"}</span></div></Reveal>
+          <Reveal><div className="section-heading"><h2 id="experience-title">{ru ? "Опыт работы" : "Experience"}</h2></div></Reveal>
           <div className="experience-list">{p.experience.map((item, i) =>
             <Reveal key={item.company} delay={i * 35}><ExperiencePanel initialOpen={i < 2} heading={<><h3>{item.company}</h3><p className="job-role">{item.role}</p></>} meta={item.period.replace(/—|–/g, "-")}>
               <p>{item.description}</p>
+              {item.company === "krem.digital" && <a className="product-link" href="https://artillect.pro" target="_blank" rel="noopener noreferrer">{ru ? "Открыть Artillect" : "View Artillect"}<Arrow /></a>}
             </ExperiencePanel></Reveal>
           )}</div>
         </section>
         <aside className="resume-aside">
           <Reveal><section className="education-panel" aria-labelledby="education-title"><h2 id="education-title">{p.educationTitle}</h2>
             <div className="education-entry"><span className="education-year">2024</span><h3>{ru ? "Программная инженерия" : "Software Engineering"}</h3><p>{ru ? "ИжГТУ им. М. Т. Калашникова" : "Kalashnikov ISTU"}</p><span>{ru ? "Бакалавр" : "Bachelor's degree"}</span></div>
-            <div className="education-entry"><span className="education-year">2023</span><h3>Unity Game Developer</h3><p>OTUS · Professional</p></div>
             <div className="language-list"><div><span>{ru ? "Русский" : "Russian"}</span><strong>{ru ? "Родной" : "Native"}</strong></div><div><span>{ru ? "Английский" : "English"}</span><strong>B2</strong></div></div>
           </section></Reveal>
-          <a className="aside-cv" href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download><div><strong>{ru ? "Резюме всегда под рукой" : "Take the résumé with you"}</strong><span>{ru ? "PDF · 2 страницы" : "PDF · 2 pages"}</span></div><Arrow down /></a>
+          <Link className="aside-cv" href={resumeHref}><strong>{p.resumeAction}</strong><Arrow /></Link>
         </aside>
       </div>
 

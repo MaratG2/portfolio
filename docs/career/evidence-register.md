@@ -39,3 +39,7 @@ These are user-attested contributions, not independently measured results. Do no
 
 Check rendered pages, source data, PDF text, metadata and all profile drafts against the approved scope. Keep language versions aligned. Nothing in this folder authorizes publication or messages to others.
 
+
+## Portfolio skills update
+
+Marat supplied additional tools for the public competency lists: UML, BPMN, n8n, LangGraph, LangChain, Qdrant, Hermes, Cursor Agents, Codex, Grafana, Uptime Kuma, CI/CD, OpenRouter, OpenAI API and ControlNet. These are listed as general skills without assigning them to a specific employer or inventing project outcomes. The Unity course is omitted from the website and downloadable CV; its historical course name remains unchanged in the source record.

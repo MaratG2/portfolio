@@ -1,0 +1,100 @@
+{
+  "ru": [
+    {
+      "src": "/cv/marat-gazizulin-cv-ru-page-1.svg",
+      "width": 595.2755737304688,
+      "height": 841.8897705078125,
+      "text": "Марат Газизулин | ML Engineer\n1\nМарат Газизулин\nML Engineer\nAI-агенты и автоматизация процессов\nmaratg2develop@gmail.com | +7 912 871-16-65\nGitHub | LinkedIn | Telegram: @maratg2\nСтрою AI-системы, которые автоматизируют бизнес-процессы\nПроектирую и внедряю AI-системы под бизнес-задачи: LLM-приложения, RAG и многоэтапные\nагентные процессы. Мой опыт объединяет архитектуру, backend и интеграции, автоматическую оценку\nна датасетах и трассировку. При выборе решения учитываю качество, скорость, стоимость и\nсложность поддержки.\nИнженерный опыт\nORO (ex-Kantar) | ML Engineer\nАпрель 2026 - настоящее время\nТехническая реализация AI-инструментов для автоматизации бизнес-процессов компании с командой\nиз 250 человек.\nkrem.digital | ML Engineer → Lead ML Engineer → CTO\nЯнварь 2024 - март 2026\nС нуля разработал и запустил Artillect, платформу генерации и редактирования текста, изображений,\nвидео, аудио и 3D. Спроектировал архитектуру, backend/API, распределение задач и\nрендер-исполнители; объединил модели на GPU-сервере компании через ComfyUI с внешними API\nчерез fal.ai. Реализовал RAG для генерации промптов с учётом выбранного типа. Позже отвечал за\nтехническое планирование, найм, координацию команды и сопровождение релизов.\nAdventarium | ML Engineer\nФевраль - август 2025\nПроектная частичная занятость. Разрабатывал AI-ведущего для RPG в Telegram и Discord: несколько\nDify-workflow с более чем 100 узлами суммарно, разными моделями, промптами и памятью.\nНастраивал автоматическую оценку качества ответов на датасете, трассировку и мониторинг.\nРеализовывал API на Python, тесты, MySQL, лимиты и подписки.\n",
+      "links": [
+        {
+          "href": "mailto:maratg2develop@gmail.com",
+          "label": "maratg2develop@gmail.com",
+          "left": 8.231481714078598,
+          "top": 15.797792615983067,
+          "width": 19.26645609887014,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://github.com/MaratG2",
+          "label": "GitHub",
+          "left": 8.231481714078598,
+          "top": 17.81705934133429,
+          "width": 4.705508410493392,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://www.linkedin.com/in/maratg2/",
+          "label": "LinkedIn",
+          "left": 14.169842186938475,
+          "top": 17.81705934133429,
+          "width": 5.71615821601467,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://t.me/maratg2",
+          "label": "Telegram: @maratg2",
+          "left": 21.11884093040138,
+          "top": 17.81705934133429,
+          "width": 14.306987238279111,
+          "height": 1.2828268226200676
+        }
+      ]
+    },
+    {
+      "src": "/cv/marat-gazizulin-cv-ru-page-2.svg",
+      "width": 595.2755737304688,
+      "height": 841.8897705078125,
+      "text": "Марат Газизулин | ML Engineer\n2\nМарат Газизулин\nML Engineer\nОпыт и инженерная база\nModel Agency | Lead ML Engineer\nФевраль - июнь 2025\nПроектная частичная занятость. Уточнял требования, проектировал пайплайны генерации\nfashion-контента в Runpod и ComfyUI, создавал кастомные ноды. Работал с сохранением внешности\nперсонажей, управлением позами и обучением LoRA.\nManka Games / ИжГТУ / krem.digital / 23:23 team | Software Engineer · C# / Unity\nМай 2021 - июнь 2023\nРазрабатывал игровые и интерактивные системы: gameplay, multiplayer, инструменты и\nbackend-интеграции. Инженерная база, на которой строится моя работа с AI.\nКомпетенции\nПроектирование AI-систем\nОт бизнес-требований до архитектуры: компоненты, потоки данных, распределение задач и\nинтеграция моделей.\nLLM-приложения, агенты и RAG\nМногоэтапные процессы в Dify с разными моделями и памятью. RAG для генерации промптов под\nвыбранный сценарий.\nОценка и наблюдаемость\nАвтоматическая оценка ответов на датасете, анализ качества и производительности. Трассировка и\nмониторинг, в том числе Langfuse.\nBackend и внедрение\nPython API, базы данных и тесты. Интеграция внешних моделей и выполнение задач на GPU-сервере\nкомпании.\nГенеративные медиа\nГенерация и редактирование изображений, видео, аудио и 3D. ComfyUI, кастомные ноды и обучение\nLoRA для визуальных задач.\nОбразование\nИжГТУ им. М. Т. Калашникова · Программная инженерия, бакалавр, 2024.\nРусский · родной / Английский · B2\n",
+      "links": []
+    }
+  ],
+  "en": [
+    {
+      "src": "/cv/marat-gazizulin-cv-en-page-1.svg",
+      "width": 595.2755737304688,
+      "height": 841.8897705078125,
+      "text": "Marat Gazizulin | ML Engineer\n1\nMarat Gazizulin\nML Engineer\nAI Agents & Process Automation\nmaratg2develop@gmail.com | +7 912 871-16-65\nGitHub | LinkedIn | Telegram: @maratg2\nI build AI systems that automate business processes\nI design and deploy AI systems for business workflows: LLM applications, RAG and multi-step agent\nsystems. My experience combines architecture, backend integration, automated dataset-based evaluation\nand tracing. I weigh quality, latency, cost and maintainability when choosing a solution.\nEngineering experience\nORO (ex-Kantar) | ML Engineer\nApril 2026 - present\nTechnical implementation of AI tools for business process automation at a company of 250 people.\nkrem.digital | ML Engineer → Lead ML Engineer → CTO\nJanuary 2024 - March 2026\nBuilt and launched Artillect from scratch, supporting text, image, video, audio and 3D generation and editing.\nDesigned the architecture, backend APIs, task distribution and render workers; integrated models on a\ncompany GPU server through ComfyUI with external APIs through fal.ai. Implemented RAG for prompt\ngeneration based on the selected prompt type. Later owned technical planning, hiring, team coordination and\nrelease support.\nAdventarium | ML Engineer\nFebruary - August 2025\nPart-time project engagement. Built an AI game master for Telegram and Discord RPGs: multiple Dify\nworkflows with over 100 nodes in total, different models, prompts and memory. Set up automated\ndataset-based answer evaluation, tracing and monitoring. Developed Python APIs, tests, MySQL integration,\nusage limits and subscriptions.\n",
+      "links": [
+        {
+          "href": "mailto:maratg2develop@gmail.com",
+          "label": "maratg2develop@gmail.com",
+          "left": 8.231481714078598,
+          "top": 15.797792615983067,
+          "width": 19.26645609887014,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://github.com/MaratG2",
+          "label": "GitHub",
+          "left": 8.231481714078598,
+          "top": 17.81705934133429,
+          "width": 4.705508410493392,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://www.linkedin.com/in/maratg2/",
+          "label": "LinkedIn",
+          "left": 14.169842186938475,
+          "top": 17.81705934133429,
+          "width": 5.71615821601467,
+          "height": 1.2828268226200676
+        },
+        {
+          "href": "https://t.me/maratg2",
+          "label": "Telegram: @maratg2",
+          "left": 21.11884093040138,
+          "top": 17.81705934133429,
+          "width": 14.306987238279111,
+          "height": 1.2828268226200676
+        }
+      ]
+    },
+    {
+      "src": "/cv/marat-gazizulin-cv-en-page-2.svg",
+      "width": 595.2755737304688,
+      "height": 841.8897705078125,
+      "text": "Marat Gazizulin | ML Engineer\n2\nMarat Gazizulin\nML Engineer\nExperience & engineering foundation\nModel Agency | Lead ML Engineer\nFebruary - June 2025\nPart-time project engagement. Clarified requirements and designed fashion-content generation pipelines\nusing Runpod and ComfyUI, including custom nodes, character consistency, pose control and LoRA training.\nManka Games / ISTU / krem.digital / 23:23 team | Software Engineer · C# / Unity\nMay 2021 - June 2023\nBuilt game and interactive systems: gameplay, multiplayer, tooling and backend integrations. The software\nengineering foundation behind my AI work.\nExpertise\nAI system design\nFrom requirements to architecture: components, data flows, task distribution and model integration.\nLLM applications, agents & RAG\nMulti-step Dify workflows with multiple models and memory. RAG for scenario-specific prompt generation.\nEvaluation & observability\nAutomated dataset-based answer evaluation, quality and performance analysis. Tracing and monitoring,\nincluding Langfuse.\nBackend & deployment\nPython APIs, databases and tests. External model integration and execution on company-hosted GPUs.\nGenerative media\nImage, video, audio and 3D generation and editing. ComfyUI, custom nodes and LoRA training for visual\ntasks.\nEducation\nKalashnikov Izhevsk State Technical University · Bachelor's degree, Software Engineering, 2024.\nRussian · native / English · B2\n",
+      "links": []
+    }
+  ]
+}

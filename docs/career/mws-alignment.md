@@ -30,7 +30,7 @@ The role profile and matrix were visually inspected, including the table columns
 1. **Keep its three-pillar reading.** It correctly identifies the ML Engineer profile on page 14.
 2. **Do not make architecture a substitute for delivery.** A diagram and a comparison table become persuasive when linked to an implementation and an experiment, including unsuccessful choices.
 3. **Do not borrow the AI Architect title to imply seniority.** Use ML Engineer, retain actual Lead/CTO progression, and show ownership through specific evidence.
-4. **Do not translate every named tool into a résumé skill.** Kafka, Kubernetes, vLLM, LangGraph and RAGAS in a guide are requirements or examples, not evidence that Marat used them.
+4. **Do not translate every named tool into a résumé skill.** Kafka, Kubernetes, vLLM and RAGAS in a guide are requirements or examples, not evidence that Marat used them.
 5. **Do not equate visual LoRA work with NLP fine-tuning.** The existing generative-media experience is valuable, but does not establish BERT fine-tuning, QLoRA, DPO, distillation or LLM serving.
 6. **Keep the chronology accurate.** The supplied AI roles begin in January 2024. As of September 2026, that does not establish three full years of applied AI/NLP experience. Earlier C#/Unity experience remains relevant software engineering experience; overlapping project roles do not add elapsed years.
 7. **Treat the guide as a useful employer-side lens, not a universal hiring standard.** Its methodology combines market material, internal hiring analysis and expert interviews (page 5). Interview predictions and strong market statements are not independently validated here. We are not deriving salary promises or an automatic grade from them.

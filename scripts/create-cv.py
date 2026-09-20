@@ -4,6 +4,7 @@ from pathlib import Path
 from shutil import copyfile
 from html import escape
 import json
+import pymupdf
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
@@ -49,6 +50,7 @@ def footer(canvas, doc):
     canvas.drawRightString(A4[0] - 43, 26, str(doc.page))
     canvas.restoreState()
 
+previews = {}
 for lang, c in content.items():
     path = output / f"marat-gazizulin-cv-{lang}.pdf"
     doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=43, rightMargin=43,
@@ -67,7 +69,23 @@ for lang, c in content.items():
     flow += [p("Компетенции" if lang == "ru" else "Expertise", "section")]
     for skill in c["skills"]:
         flow += [p(skill["title"], "job"), p(skill["description"])]
-    flow += [p(c["educationTitle"], "section"), p(c["education"]), p(c["course"]), p(c["languages"])]
+    flow += [p(c["educationTitle"], "section"), p(c["education"]), p(c["languages"])]
     doc.build(flow, onFirstPage=footer, onLaterPages=footer)
     copyfile(path, web / path.name)
+    previews[lang] = []
+    with pymupdf.open(path) as pdf:
+        for index, page in enumerate(pdf):
+            asset = f"{path.stem}-page-{index + 1}.svg"
+            (web / asset).write_text(page.get_svg_image(text_as_path=True), encoding="utf-8")
+            previews[lang].append({"src": f"/cv/{asset}", "width": page.rect.width,
+                "height": page.rect.height, "text": page.get_text(),
+                "links": [{"href": link["uri"], "label": page.get_textbox(link["from"]).strip(),
+                    "left": link["from"].x0 / page.rect.width * 100,
+                    "top": link["from"].y0 / page.rect.height * 100,
+                    "width": link["from"].width / page.rect.width * 100,
+                    "height": link["from"].height / page.rect.height * 100}
+                    for link in page.get_links() if "uri" in link]})
     print(path)
+
+(root / "app/_content/cv-pages.json").write_text(
+    json.dumps(previews, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

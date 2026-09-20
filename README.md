@@ -5,6 +5,7 @@ Next.js application deployed by Coolify.
 ## Portfolio
 
 Russian portfolio: `/`. English portfolio: `/en`.
+Résumé readers: `/resume` and `/en/resume`, with Back and PDF download controls.
 
 Both pages render on the server and share approved public content in
 `app/_content/profile.json`, exported through `profile.ts`. The same JSON generates
@@ -21,9 +22,9 @@ and start commands. Deployment defaults to the standard `.next` directory.
 
 Two-page CV PDFs are available in `public/cv` and linked from the matching language
 page. Editable copy is in `docs/career/profile-copy.md`; the PDF generation source is
-`scripts/create-cv.py` (Python + ReportLab, `--font-dir` points to a directory containing
+`scripts/create-cv.py` (Python + ReportLab + PyMuPDF, `--font-dir` points to a directory containing
 `arial.ttf` and `arialbd.ttf`). The script writes review copies to `output/pdf` and copies
-the same PDFs into `public/cv`. Regenerate both when updating CV facts.
+the same PDFs into `public/cv`. It also renders vector page previews and their accessible text/link manifest in `app/_content/cv-pages.json`. The résumé reader displays every page without depending on a browser PDF plug-in. Regenerate these together when updating CV facts.
 
 Ready-to-use HH, LinkedIn and GitHub copy is indexed in [docs/career/README.md](docs/career/README.md), separately from the working guide analysis and assistant development plan.
 The Engineering approach section connects design decisions to delivered Artillect and Adventarium work. No external profile accounts have been changed. Do not add internal employer information.

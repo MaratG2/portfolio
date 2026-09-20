@@ -11,7 +11,7 @@
       "Компетенции"
     ],
     "contactAction": "Связаться",
-    "resumeAction": "Скачать резюме",
+    "resumeAction": "Открыть резюме",
     "skip": "Перейти к содержимому",
     "aboutTitle": "От архитектуры\nдо внедрения",
     "aboutNote": "Агенты. Интеграции. Рабочие процессы.",
@@ -53,27 +53,27 @@
       {
         "title": "Проектирование AI-систем",
         "description": "От бизнес-требований до архитектуры: компоненты, потоки данных, распределение задач и интеграция моделей.",
-        "tools": "System Design / Python / API"
+        "tools": "System Design / UML / BPMN"
       },
       {
         "title": "LLM-приложения, агенты и RAG",
         "description": "Многоэтапные процессы в Dify с разными моделями и памятью. RAG для генерации промптов под выбранный сценарий.",
-        "tools": "Dify / RAG / Оркестрация"
+        "tools": "Dify / n8n / LangGraph / LangChain / Qdrant / Hermes / Cursor Agents / Codex"
       },
       {
         "title": "Оценка и наблюдаемость",
         "description": "Автоматическая оценка ответов на датасете, анализ качества и производительности. Трассировка и мониторинг, в том числе Langfuse.",
-        "tools": "Dataset evals / Langfuse"
+        "tools": "Dataset evals / Langfuse / Grafana / Uptime Kuma"
       },
       {
         "title": "Backend и внедрение",
         "description": "Python API, базы данных и тесты. Интеграция внешних моделей и выполнение задач на GPU-сервере компании.",
-        "tools": "FastAPI / SQL / Docker / fal.ai"
+        "tools": "Python / FastAPI / SQL / Docker / CI/CD / OpenRouter / fal.ai / OpenAI API"
       },
       {
         "title": "Генеративные медиа",
         "description": "Генерация и редактирование изображений, видео, аудио и 3D. ComfyUI, кастомные ноды и обучение LoRA для визуальных задач.",
-        "tools": "ComfyUI / LoRA / Runpod"
+        "tools": "ComfyUI / Runpod / Custom Nodes / LoRA / ControlNet / Training"
       }
     ],
     "educationTitle": "Образование",
@@ -121,7 +121,11 @@
           "text": "Несколько workflow с более чем 100 узлами суммарно: модели, промпты, память и оркестрация. Качество ответов проверял автоматической оценкой на датасете; использовал трассировку и мониторинг."
         }
       ]
-    }
+    },
+    "heroSummary": [
+      "Работаю с AI-агентами, RAG и мультимодальными моделями.",
+      "Моя сильная сторона — проектирование и разработка AI-систем: от архитектуры до внедрения."
+    ]
   },
   "en": {
     "name": "Marat Gazizulin",
@@ -135,7 +139,7 @@
       "Expertise"
     ],
     "contactAction": "Get in touch",
-    "resumeAction": "Download résumé",
+    "resumeAction": "View résumé",
     "skip": "Skip to content",
     "aboutTitle": "From architecture\nto implementation",
     "aboutNote": "Agents. Integrations. Workflows.",
@@ -177,27 +181,27 @@
       {
         "title": "AI system design",
         "description": "From requirements to architecture: components, data flows, task distribution and model integration.",
-        "tools": "System Design / Python / API"
+        "tools": "System Design / UML / BPMN"
       },
       {
         "title": "LLM applications, agents & RAG",
         "description": "Multi-step Dify workflows with multiple models and memory. RAG for scenario-specific prompt generation.",
-        "tools": "Dify / RAG / Orchestration"
+        "tools": "Dify / n8n / LangGraph / LangChain / Qdrant / Hermes / Cursor Agents / Codex"
       },
       {
         "title": "Evaluation & observability",
         "description": "Automated dataset-based answer evaluation, quality and performance analysis. Tracing and monitoring, including Langfuse.",
-        "tools": "Dataset evals / Langfuse"
+        "tools": "Dataset evals / Langfuse / Grafana / Uptime Kuma"
       },
       {
         "title": "Backend & deployment",
         "description": "Python APIs, databases and tests. External model integration and execution on company-hosted GPUs.",
-        "tools": "FastAPI / SQL / Docker / fal.ai"
+        "tools": "Python / FastAPI / SQL / Docker / CI/CD / OpenRouter / fal.ai / OpenAI API"
       },
       {
         "title": "Generative media",
         "description": "Image, video, audio and 3D generation and editing. ComfyUI, custom nodes and LoRA training for visual tasks.",
-        "tools": "ComfyUI / LoRA / Runpod"
+        "tools": "ComfyUI / Runpod / Custom Nodes / LoRA / ControlNet / Training"
       }
     ],
     "educationTitle": "Education",
@@ -245,6 +249,10 @@
           "text": "Multiple workflows with over 100 nodes in total: models, prompts, memory and orchestration. Evaluated answers automatically against a dataset and used tracing and monitoring."
         }
       ]
-    }
+    },
+    "heroSummary": [
+      "I work with AI agents, RAG and multimodal models.",
+      "I specialize in designing and building AI systems, from architecture through deployment."
+    ]
   }
 }

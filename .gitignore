@@ -36,3 +36,4 @@ logs
 .next-public
 yarn-error.log
 npm-debug.log
+!/public/photo.png
