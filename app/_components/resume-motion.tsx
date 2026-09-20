@@ -1,12 +1,21 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode, type PointerEvent } from "react";
-import { LazyMotion, domAnimation, m, useSpring, useMotionTemplate, useReducedMotion } from "motion/react";
+import { createContext, useContext, useEffect, useRef, useState, useSyncExternalStore, type ReactNode, type PointerEvent } from "react";
+import { LazyMotion, domAnimation, m, useSpring, useMotionTemplate } from "motion/react";
 
 const MotionContext = createContext({ disabled: false, paused: false, toggle: () => {} });
 
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onChange: () => void) {
+  const media = window.matchMedia(reducedMotionQuery);
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+}
+const readReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
+const serverReducedMotion = () => true;
+
 export function ResumeMotion({ children }: { children: ReactNode }) {
-  const reduced = useReducedMotion();
+  const reduced = useSyncExternalStore(subscribeReducedMotion, readReducedMotion, serverReducedMotion);
   const [paused, setPaused] = useState(false);
   return <MotionContext.Provider value={{ disabled: !!reduced || paused, paused, toggle: () => setPaused(p => !p) }}>
     <LazyMotion features={domAnimation}><div className="resume-app" data-motion={reduced || paused ? "off" : "on"}>{children}</div></LazyMotion>

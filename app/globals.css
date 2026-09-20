@@ -123,6 +123,18 @@ p { text-wrap: pretty; }
 .skill-item p { font-size: 12px; color: var(--muted); margin-top: 10px; }
 .tech-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 15px 0 0; padding: 0; list-style: none; }
 .tech-list li { padding: 3px 8px; font-size: 10px; color: #49634d; background: #e5ede3; border-radius: 5px; }
+.engineering-section { margin-top: 64px; padding-top: 38px; border-top: 1px solid var(--line); }
+.engineering-intro { max-width: 740px; margin-top: 14px; font-size: 14px; color: var(--muted); }
+.engineering-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin: 30px 0; padding: 0; list-style: none; }
+.engineering-steps li { border-left: 2px solid #b4cdb9; padding-left: 17px; }
+.engineering-steps h3 { font-size: 15px; line-height: 1.5; }
+.engineering-steps p { margin-top: 10px; color: var(--muted); font-size: 12px; }
+.engineering-evidence { margin-block: 32px; }
+.engineering-evidence > h3 { font-size: 17px; margin-bottom: 18px; }
+.engineering-evidence > div { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.engineering-evidence article { padding-top: 17px; border-top: 1px solid var(--line); }
+.engineering-evidence h4 { margin: 0; font-weight: 600; font-size: 14px; }
+.engineering-evidence p { color: var(--muted); margin-top: 10px; font-size: 13px; }
 .contact-section { position: relative; overflow: hidden; margin-top: 76px; padding: 38px 42px 26px; border-radius: 24px; background: #e0edde; }
 .contact-section::before { content: ""; position: absolute; width: 360px; height: 360px; right: -190px; top: -230px; border: 1px solid #b7d2b5; border-radius: 50%; pointer-events: none; }
 .contact-main { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
@@ -204,6 +216,7 @@ p { text-wrap: pretty; }
   .expertise-statement p { white-space: normal; max-width: none; font-size: 22px; }
   .capability-orbit { display: none; }
   .skills-list { gap: 25px; }
+  .engineering-steps { grid-template-columns: 1fr 1fr; }
   .contact-section { padding: 30px; }
   .contact-main h2 { font-size: 29px; }
 }
@@ -238,7 +251,7 @@ p { text-wrap: pretty; }
   .hero-intro p { font-size: 13px; line-height: 1.8; }
   .resume-nav { margin: 20px auto 36px; padding: 5px; top: 10px; border-radius: 15px; width: 100%; }
   .nav-track { justify-content: space-between; gap: 0; }
-  .nav-track a { font-size: 10px; padding: 10px 11px; text-align: center; }
+  .nav-track a { font-size: 10px; padding: 10px 7px; text-align: center; }
   .nav-selection { border-radius: 10px; }
   .resume-content { grid-template-columns: 1fr; gap: 30px; }
   .section-heading { margin-bottom: 22px; }
@@ -263,6 +276,11 @@ p { text-wrap: pretty; }
   .skill-item h3 { font-size: 18px; }
   .skill-item p { font-size: 13px; }
   .tech-list li { font-size: 11px; }
+  .engineering-section { margin-top: 38px; padding-top: 30px; }
+  .engineering-steps { grid-template-columns: 1fr; gap: 23px; }
+  .engineering-evidence > div { grid-template-columns: 1fr; gap: 22px; }
+  .engineering-steps h3 { font-size: 16px; }
+  .engineering-steps p { font-size: 13px; }
   .contact-section { margin-top: 42px; padding: 29px 26px 26px; border-radius: 20px; }
   .contact-main { gap: 18px; align-items: flex-start; flex-direction: column; }
   .contact-main h2 { font-size: 31px; max-width: 270px; }
@@ -281,7 +299,7 @@ p { text-wrap: pretty; }
   .hero h1 { font-size: 36px; }
   .hero-actions { gap: 8px; }
   .button { font-size: 10px; padding-inline: 12px; gap: 9px; }
-  .nav-track a { font-size: 9px; padding-inline: 9px; }
+  .nav-track a { font-size: 9px; padding-inline: 5px; }
   .wordmark { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -325,6 +343,9 @@ p { text-wrap: pretty; }
   .skills-list { gap: 15px; }
   .skill-item { break-inside: avoid; }
   .skill-item h3 { font-size: 11pt; }
+  .engineering-section { margin-top: 20px; padding-top: 20px; }
+  .engineering-steps { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .engineering-steps li { break-inside: avoid; }
   .contact-section { padding: 15px 0; margin-top: 20px; background: none; break-inside: avoid; }
   .contact-main h2 { font-size: 16pt; }
   .contact-bottom { margin-top: 15px; padding-top: 15px; }

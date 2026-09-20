@@ -1,6 +1,6 @@
 # Public-content boundaries
 
-Updated 17 September 2026. This policy supersedes previous drafts.
+Updated 20 September 2026. This policy supersedes previous drafts.
 
 ## Current employment
 
@@ -22,6 +22,18 @@ Use ML Engineer for AI engineering experience, with Lead ML Engineer and CTO whe
 Earlier employment and education come from the original portfolio and Marat's statements. Do not invent users, adoption, outcomes, certifications, stars or benchmark results.
 
 Any public demo must be independently created using synthetic or public data. Public repositories must not reproduce employer materials.
+
+## Additional experience confirmed on 20 September 2026
+
+These details were supplied by Marat in response to a request for publishable evidence outside ORO:
+
+- **krem.digital / Artillect:** full implementation of a platform for text, image, video, audio and 3D generation/editing; company-hosted GPU models through ComfyUI; external model APIs through fal.ai; task distribution and render workers; RAG for prompt generation by selected prompt type. Requirements, architecture, backend/API, launch and release support, followed by technical planning, hiring and coordination.
+- **Adventarium:** AI game master in Telegram/Discord; multiple Dify workflows with more than 100 nodes in total, different model/prompt stages and knowledge/memory; automated dataset-based answer-quality evaluation, tracing and monitoring; Python APIs, tests and MySQL. More than 100 nodes refers to workflow size, not user count, agents or benchmark score.
+- **Langfuse:** explicitly confirmed for tracing/monitoring. Keep the tool as a general competency unless a specific employer association is confirmed.
+- **Adventarium and Model Agency:** part-time project engagements, explaining the overlapping 2025 dates.
+- **Model Agency:** requirements, Runpod/ComfyUI architecture and environments, custom nodes and content-generation pipelines. Existing visual LoRA experience does not establish NLP fine-tuning.
+
+These are user-attested contributions, not independently measured results. Do not invent scale, model names, evaluation scores, cost savings, team size, SLA or specific retrieval algorithms. The MWS guide is a source of role expectations, not evidence of Marat's experience. Planned assistant work remains clearly labelled as design until implemented and evaluated.
 
 ## Review before publishing
 

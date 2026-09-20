@@ -2,9 +2,9 @@
   "ru": {
     "name": "Марат Газизулин",
     "specialization": "AI-агенты и автоматизация процессов",
-    "description": "Марат Газизулин, ML Engineer. AI-агенты, автоматизация бизнес-процессов, архитектура и разработка AI-систем.",
+    "description": "Марат Газизулин, ML Engineer. Проектирование AI-систем, агенты, RAG, автоматическая оценка качества и внедрение.",
     "headline": "Строю AI-системы, которые автоматизируют бизнес-процессы",
-    "introduction": "Соединяю машинное обучение, разработку и понимание бизнеса. Проектирую системы целиком: от архитектуры и интеграций до приложения, которым удобно пользоваться.",
+    "introduction": "Проектирую и внедряю AI-системы под бизнес-задачи: LLM-приложения, RAG и многоэтапные агентные процессы. Мой опыт объединяет архитектуру, backend и интеграции, автоматическую оценку на датасетах и трассировку. При выборе решения учитываю качество, скорость, стоимость и сложность поддержки.",
     "nav": [
       "Подход",
       "Опыт",
@@ -27,19 +27,19 @@
         "company": "krem.digital",
         "role": "ML Engineer → Lead ML Engineer → CTO",
         "period": "Январь 2024 — март 2026",
-        "description": "Развивал с нуля Artillect, платформу генеративных AI-сервисов: full-stack, backend, AI-пайплайны и инфраструктуру. Позже отвечал за техническое планирование, найм и координацию команды. Вёл интерактивный проект с AI-аватарами для ЦИПР 2025."
+        "description": "С нуля разработал и запустил Artillect, платформу генерации и редактирования текста, изображений, видео, аудио и 3D. Спроектировал архитектуру, backend/API, распределение задач и рендер-исполнители; объединил модели на GPU-сервере компании через ComfyUI с внешними API через fal.ai. Реализовал RAG для генерации промптов с учётом выбранного типа. Позже отвечал за техническое планирование, найм, координацию команды и сопровождение релизов."
       },
       {
         "company": "Adventarium",
         "role": "ML Engineer",
         "period": "Февраль — август 2025",
-        "description": "Разрабатывал Telegram- и Discord-ботов для ролевой игры с AI-ведущим: оркестрация, Python API, база данных, лимиты и подписки."
+        "description": "Проектная частичная занятость. Разрабатывал AI-ведущего для RPG в Telegram и Discord: несколько Dify-workflow с более чем 100 узлами суммарно, разными моделями, промптами и памятью. Настраивал автоматическую оценку качества ответов на датасете, трассировку и мониторинг. Реализовывал API на Python, тесты, MySQL, лимиты и подписки."
       },
       {
         "company": "Model Agency",
         "role": "Lead ML Engineer",
         "period": "Февраль — июнь 2025",
-        "description": "Создавал пайплайны генерации fashion-контента: консистентные персонажи, управление позами, обучение LoRA и GPU-окружения."
+        "description": "Проектная частичная занятость. Уточнял требования, проектировал пайплайны генерации fashion-контента в Runpod и ComfyUI, создавал кастомные ноды. Работал с сохранением внешности персонажей, управлением позами и обучением LoRA."
       },
       {
         "company": "Manka Games / ИжГТУ / krem.digital / 23:23 team",
@@ -48,32 +48,32 @@
         "description": "Разрабатывал игровые и интерактивные системы: gameplay, multiplayer, инструменты и backend-интеграции. Инженерная база, на которой строится моя работа с AI."
       }
     ],
-    "skillsTitle": "Системное мышление.\nПрактическая реализация.",
+    "skillsTitle": "Архитектура. Реализация.\nОценка качества.",
     "skills": [
       {
-        "title": "Агенты и автоматизация",
-        "description": "Декомпозиция задач, многоэтапные процессы, оркестрация и интеграция инструментов.",
-        "tools": "AI agents / Python / Dify / n8n"
+        "title": "Проектирование AI-систем",
+        "description": "От бизнес-требований до архитектуры: компоненты, потоки данных, распределение задач и интеграция моделей.",
+        "tools": "System Design / Python / API"
       },
       {
-        "title": "Разработка систем",
-        "description": "Архитектура, API и данные. От серверной логики до интерфейса для пользователя.",
-        "tools": "FastAPI / PostgreSQL / React / Next.js"
+        "title": "LLM-приложения, агенты и RAG",
+        "description": "Многоэтапные процессы в Dify с разными моделями и памятью. RAG для генерации промптов под выбранный сценарий.",
+        "tools": "Dify / RAG / Оркестрация"
       },
       {
-        "title": "Машинное обучение",
-        "description": "Выбор и интеграция моделей, работа с данными и оценка качества решений.",
-        "tools": "Python / Pandas / SQL / Evaluation"
+        "title": "Оценка и наблюдаемость",
+        "description": "Автоматическая оценка ответов на датасете, анализ качества и производительности. Трассировка и мониторинг, в том числе Langfuse.",
+        "tools": "Dataset evals / Langfuse"
+      },
+      {
+        "title": "Backend и внедрение",
+        "description": "Python API, базы данных и тесты. Интеграция внешних моделей и выполнение задач на GPU-сервере компании.",
+        "tools": "FastAPI / SQL / Docker / fal.ai"
       },
       {
         "title": "Генеративные медиа",
-        "description": "Пайплайны генерации изображений, видео и аудио. Настройка моделей под задачу.",
-        "tools": "ComfyUI / LoRA / Diffusion models"
-      },
-      {
-        "title": "Внедрение",
-        "description": "Воспроизводимые окружения, интеграция в рабочие процессы и техническая документация.",
-        "tools": "Docker / Git / CI/CD / REST API"
+        "description": "Генерация и редактирование изображений, видео, аудио и 3D. ComfyUI, кастомные ноды и обучение LoRA для визуальных задач.",
+        "tools": "ComfyUI / LoRA / Runpod"
       }
     ],
     "educationTitle": "Образование",
@@ -81,21 +81,54 @@
     "course": "OTUS · Unity Game Developer Professional, 2023.",
     "languages": "Русский · родной / Английский · B2",
     "contactTitle": "Давайте создадим\nчто-то полезное",
-    "contactText": "Открыт к разговору о роли ML Engineer, агентных системах и автоматизации бизнеса.",
+    "contactText": "Интересуют роли ML Engineer: AI-системы, агенты, RAG и автоматизация. Особенно задачи, где нужно выбирать архитектуру, проверять качество и доводить решение до внедрения.",
     "emailLabel": "Написать на почту",
     "footer": "Марат Газизулин",
     "pause": "Остановить анимацию",
     "play": "Включить анимацию",
     "sculpture": "Интерактивная абстрактная композиция",
     "motionHint": "Движение курсора меняет ракурс",
-    "backTop": "Наверх"
+    "backTop": "Наверх",
+    "engineering": {
+      "title": "Инженерный подход",
+      "intro": "Начинаю с задачи и ограничений. Архитектурное решение должно объяснять, почему выбранный вариант подходит и как проверить его на практике.",
+      "steps": [
+        {
+          "title": "Задача и критерии",
+          "description": "Что должен получить пользователь? Какие ошибки недопустимы? Какие есть ограничения по данным, времени и стоимости?"
+        },
+        {
+          "title": "Варианты и компромиссы",
+          "description": "Сравнить простое базовое решение с более сложными вариантами. Обосновать компоненты и границы системы."
+        },
+        {
+          "title": "Эксперимент и проверка",
+          "description": "Проверить гипотезу на примерах, разобрать ошибки и сопоставить качество со скоростью и стоимостью."
+        },
+        {
+          "title": "Внедрение и обратная связь",
+          "description": "Продумать интеграции, обработку сбоев и поддержку. Пересматривать решение по результатам эксплуатации."
+        }
+      ],
+      "evidenceTitle": "Как это проявляется в моём опыте",
+      "evidence": [
+        {
+          "title": "Artillect: единая платформа, разные способы исполнения",
+          "text": "Объединил модели на GPU-сервере компании через ComfyUI и внешние API через fal.ai. Спроектировал распределение задач и рендер-исполнители; добавил RAG для генерации промптов под выбранный тип."
+        },
+        {
+          "title": "Adventarium: многоэтапная логика и проверка качества",
+          "text": "Несколько workflow с более чем 100 узлами суммарно: модели, промпты, память и оркестрация. Качество ответов проверял автоматической оценкой на датасете; использовал трассировку и мониторинг."
+        }
+      ]
+    }
   },
   "en": {
     "name": "Marat Gazizulin",
     "specialization": "AI Agents & Process Automation",
-    "description": "Marat Gazizulin, ML Engineer. AI agents, business process automation, and end-to-end AI systems engineering.",
+    "description": "Marat Gazizulin, ML Engineer. AI system design, agents, RAG, automated evaluation and delivery.",
     "headline": "I build AI systems that automate business processes",
-    "introduction": "I bring together machine learning, software engineering and business context. I build complete systems, from architecture and integrations to applications people can use.",
+    "introduction": "I design and deploy AI systems for business workflows: LLM applications, RAG and multi-step agent systems. My experience combines architecture, backend integration, automated dataset-based evaluation and tracing. I weigh quality, latency, cost and maintainability when choosing a solution.",
     "nav": [
       "Approach",
       "Experience",
@@ -118,19 +151,19 @@
         "company": "krem.digital",
         "role": "ML Engineer → Lead ML Engineer → CTO",
         "period": "January 2024 — March 2026",
-        "description": "Built Artillect, a generative AI services platform, across full-stack development, backend, AI pipelines and infrastructure. Later took on technical planning, hiring and team coordination. Led an interactive AI avatar project for CIPR 2025."
+        "description": "Built and launched Artillect from scratch, supporting text, image, video, audio and 3D generation and editing. Designed the architecture, backend APIs, task distribution and render workers; integrated models on a company GPU server through ComfyUI with external APIs through fal.ai. Implemented RAG for prompt generation based on the selected prompt type. Later owned technical planning, hiring, team coordination and release support."
       },
       {
         "company": "Adventarium",
         "role": "ML Engineer",
         "period": "February — August 2025",
-        "description": "Built Telegram and Discord role-playing bots with an AI game master: orchestration, Python APIs, database integration, usage limits and subscriptions."
+        "description": "Part-time project engagement. Built an AI game master for Telegram and Discord RPGs: multiple Dify workflows with over 100 nodes in total, different models, prompts and memory. Set up automated dataset-based answer evaluation, tracing and monitoring. Developed Python APIs, tests, MySQL integration, usage limits and subscriptions."
       },
       {
         "company": "Model Agency",
         "role": "Lead ML Engineer",
         "period": "February — June 2025",
-        "description": "Developed fashion-content generation pipelines: consistent characters, pose control, LoRA training and GPU environments."
+        "description": "Part-time project engagement. Clarified requirements and designed fashion-content generation pipelines using Runpod and ComfyUI, including custom nodes, character consistency, pose control and LoRA training."
       },
       {
         "company": "Manka Games / ISTU / krem.digital / 23:23 team",
@@ -139,32 +172,32 @@
         "description": "Built game and interactive systems: gameplay, multiplayer, tooling and backend integrations. The software engineering foundation behind my AI work."
       }
     ],
-    "skillsTitle": "Systems thinking.\nHands-on engineering.",
+    "skillsTitle": "Architecture. Delivery.\nQuality evaluation.",
     "skills": [
       {
-        "title": "Agents & automation",
-        "description": "Task decomposition, multi-step workflows, orchestration and tool integration.",
-        "tools": "AI agents / Python / Dify / n8n"
+        "title": "AI system design",
+        "description": "From requirements to architecture: components, data flows, task distribution and model integration.",
+        "tools": "System Design / Python / API"
       },
       {
-        "title": "Systems development",
-        "description": "Architecture, APIs and data. From backend logic to user-facing applications.",
-        "tools": "FastAPI / PostgreSQL / React / Next.js"
+        "title": "LLM applications, agents & RAG",
+        "description": "Multi-step Dify workflows with multiple models and memory. RAG for scenario-specific prompt generation.",
+        "tools": "Dify / RAG / Orchestration"
       },
       {
-        "title": "Machine learning",
-        "description": "Model selection and integration, data processing and quality evaluation.",
-        "tools": "Python / Pandas / SQL / Evaluation"
+        "title": "Evaluation & observability",
+        "description": "Automated dataset-based answer evaluation, quality and performance analysis. Tracing and monitoring, including Langfuse.",
+        "tools": "Dataset evals / Langfuse"
+      },
+      {
+        "title": "Backend & deployment",
+        "description": "Python APIs, databases and tests. External model integration and execution on company-hosted GPUs.",
+        "tools": "FastAPI / SQL / Docker / fal.ai"
       },
       {
         "title": "Generative media",
-        "description": "Image, video and audio generation pipelines. Adapting models to the task.",
-        "tools": "ComfyUI / LoRA / Diffusion models"
-      },
-      {
-        "title": "Delivery",
-        "description": "Reproducible environments, workflow integration and technical documentation.",
-        "tools": "Docker / Git / CI/CD / REST API"
+        "description": "Image, video, audio and 3D generation and editing. ComfyUI, custom nodes and LoRA training for visual tasks.",
+        "tools": "ComfyUI / LoRA / Runpod"
       }
     ],
     "educationTitle": "Education",
@@ -172,13 +205,46 @@
     "course": "OTUS · Unity Game Developer Professional, 2023.",
     "languages": "Russian · native / English · B2",
     "contactTitle": "Let's build\nsomething useful",
-    "contactText": "Open to conversations about ML Engineer roles, agent systems and business automation.",
+    "contactText": "Interested in ML Engineer roles involving AI systems, agents, RAG and automation, with responsibility for architecture, quality evaluation and delivery.",
     "emailLabel": "Send an email",
     "footer": "Marat Gazizulin",
     "pause": "Pause animation",
     "play": "Play animation",
     "sculpture": "Interactive abstract composition",
     "motionHint": "Move your pointer to explore",
-    "backTop": "Back to top"
+    "backTop": "Back to top",
+    "engineering": {
+      "title": "Engineering approach",
+      "intro": "Start with the problem and its constraints. An architecture decision should explain why an option fits and how to test it in practice.",
+      "steps": [
+        {
+          "title": "Define success",
+          "description": "What does the user need? Which errors are unacceptable? What constraints apply to data, time and cost?"
+        },
+        {
+          "title": "Compare alternatives",
+          "description": "Compare a simple baseline with more complex options. Explain the components, system boundaries and tradeoffs."
+        },
+        {
+          "title": "Test the hypothesis",
+          "description": "Evaluate on representative examples, analyze failures and compare quality, latency and cost."
+        },
+        {
+          "title": "Deliver and revisit",
+          "description": "Plan integrations, failure handling and maintenance. Revisit decisions using evidence from operation."
+        }
+      ],
+      "evidenceTitle": "Examples from my experience",
+      "evidence": [
+        {
+          "title": "Artillect: one platform, different execution paths",
+          "text": "Integrated company-hosted ComfyUI models and external APIs through fal.ai. Designed task distribution and render workers, and implemented RAG for generating prompts by type."
+        },
+        {
+          "title": "Adventarium: staged logic with quality evaluation",
+          "text": "Multiple workflows with over 100 nodes in total: models, prompts, memory and orchestration. Evaluated answers automatically against a dataset and used tracing and monitoring."
+        }
+      ]
+    }
   }
 }

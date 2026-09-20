@@ -1,30 +1,37 @@
 # Profile copy
 
-Updated 17 September 2026. Public-facing drafts. Use ML Engineer as the professional role label. Preserve leadership progression and software-engineering history.
-
-## HH
-
-The updated Russian hh.ru copy and implementation checklist are maintained in [hh-profile.md](hh-profile.md), updated 18 September 2026. Use that file for the target role, About, experience, skills and profile settings.
-
-## LinkedIn
-
-The updated LinkedIn copy and implementation checklist are maintained in [linkedin-profile.md](linkedin-profile.md), updated 18 September 2026. Use that file for the headline, About, experience, skills, featured work and profile presentation.
-
 ## GitHub bio
 
-ML Engineer · AI agents & process automation · Python · AI systems
+ML Engineer | AI systems, agents & RAG | System design, evaluation and delivery
+
+## Краткое представление
+
+Марат Газизулин, ML Engineer. Проектирую и внедряю AI-системы для автоматизации бизнеса: агенты, RAG и многоэтапные процессы. Мой опыт объединяет архитектуру, backend, интеграцию моделей и автоматическую оценку качества.
 
 ## Short introduction
 
-**RU:** Марат Газизулин, ML Engineer. Проектирую и разрабатываю AI-системы для автоматизации бизнес-процессов.
+Marat Gazizulin, ML Engineer. I design and deliver AI systems for business process automation: agents, RAG and multi-stage workflows. My experience combines architecture, backend engineering, model integration and automated quality evaluation.
 
-**EN:** Marat Gazizulin, ML Engineer. I design and build AI systems for business process automation.
+## Сопроводительное письмо
 
-## Recruiter message drafts
+Здравствуйте!
 
-**RU:** Здравствуйте! Меня заинтересовала ваша вакансия ML Engineer. Мой опыт объединяет AI-системы, автоматизацию и разработку приложений. Буду рад обсудить задачи команды и то, чем мой опыт может быть полезен. Прикладываю резюме.
+Меня заинтересовала ваша вакансия ML Engineer. В krem.digital я с нуля разработал и запустил Artillect — мультимодальную AI-платформу: архитектура, backend, распределение задач, GPU-модели, внешние API и RAG для генерации промптов. Позже вырос до CTO.
 
-**EN:** Hello! I'm interested in your ML Engineer position. My experience combines AI systems, process automation and software engineering. I'd welcome a conversation about your team's needs and where I could contribute. My résumé is attached.
+В Adventarium разрабатывал AI-ведущего с многоэтапными процессами и настраивал автоматическую оценку ответов на датасете, трассировку и мониторинг. Моя сильная сторона — проектирование систем и ответственность за реализацию: от требований до внедрения.
 
-Drafts only; no messages have been sent.
+Буду рад обсудить задачи вашей команды. Прикладываю резюме.
 
+Марат Газизулин
+
+## Cover letter
+
+Hello,
+
+I’m interested in your ML Engineer position. At krem.digital, I built and launched Artillect from scratch: a multimodal AI platform spanning architecture, backend services, task distribution, GPU models, external APIs and RAG for prompt generation. I later progressed to CTO.
+
+At Adventarium, I developed an AI game master with multi-stage workflows and set up automated dataset-based answer evaluation, tracing and monitoring. My strength is system design and technical ownership, from requirements through deployment.
+
+I’d welcome a conversation about your team’s needs. My résumé is attached.
+
+Marat Gazizulin

@@ -25,6 +25,7 @@ export default function Portfolio({ lang }: { lang: Language }) {
     { id: "about", label: ru ? "О себе" : "About" },
     { id: "experience", label: ru ? "Опыт работы" : "Experience" },
     { id: "expertise", label: ru ? "Компетенции" : "Expertise" },
+    { id: "engineering", label: ru ? "Подход" : "Approach" },
     { id: "contact", label: ru ? "Контакты" : "Contact" },
   ];
   const person = { "@context": "https://schema.org", "@type": "Person", name: p.name, alternateName: "MaratG2", jobTitle: "ML Engineer", sameAs: [links.github, links.linkedin, links.hh], knowsLanguage: ["Russian", "English"] };
@@ -82,9 +83,15 @@ export default function Portfolio({ lang }: { lang: Language }) {
       <section id="expertise" className="expertise-section" aria-labelledby="expertise-title">
         <Reveal><div className="section-heading"><h2 id="expertise-title">{ru ? "Компетенции" : "Expertise"}</h2></div></Reveal>
         <div className="expertise-layout">
-          <div className="expertise-statement"><Reveal><p>{ru ? "Думаю системой.\nДовожу до результата." : "Think in systems.\nBuild to deliver."}</p></Reveal><div className="capability-orbit" aria-hidden="true"><span /><span /><span /><i /></div></div>
-          <div className="skills-list">{p.skills.map(skill => <Reveal key={skill.title}><article className="skill-item"><h3>{skill.title}</h3><p>{skill.description}</p><ul className="tech-list">{skill.tools.split(" / ").map(tool => <li key={tool}>{tool}</li>)}</ul></article></Reveal>)}</div>
+          <div className="expertise-statement"><Reveal><p>{p.skillsTitle}</p></Reveal><div className="capability-orbit" aria-hidden="true"><span /><span /><span /><i /></div></div>
+          <div className="skills-list">{p.skills.map(skill => <Reveal key={skill.title}><article className="skill-item"><h3>{skill.title}</h3><p>{skill.description}</p>{skill.tools ? <ul className="tech-list">{skill.tools.split(" / ").map(tool => <li key={tool}>{tool}</li>)}</ul> : null}</article></Reveal>)}</div>
         </div>
+      </section>
+
+      <section id="engineering" className="engineering-section" aria-labelledby="engineering-title">
+        <Reveal><div className="section-heading"><h2 id="engineering-title">{p.engineering.title}</h2><p className="engineering-intro">{p.engineering.intro}</p></div></Reveal>
+        <ol className="engineering-steps">{p.engineering.steps.map(step => <li key={step.title}><Reveal><h3>{step.title}</h3><p>{step.description}</p></Reveal></li>)}</ol>
+        <div className="engineering-evidence"><h3>{p.engineering.evidenceTitle}</h3><div>{p.engineering.evidence.map(example => <Reveal key={example.title}><article><h4>{example.title}</h4><p>{example.text}</p></article></Reveal>)}</div></div>
       </section>
 
       <Reveal><section className="contact-section" id="contact" aria-labelledby="contact-title">

@@ -29,8 +29,8 @@ styles = {
     "role": ParagraphStyle("role", fontName="Arial-Bold", fontSize=14, leading=19, textColor=ink, spaceAfter=5),
     "sub": ParagraphStyle("sub", fontName="Arial", fontSize=10.5, leading=15, spaceAfter=13),
     "contact": ParagraphStyle("contact", fontName="Arial", fontSize=9, leading=14, spaceAfter=3),
-    "body": ParagraphStyle("body", fontName="Arial", fontSize=10.3, leading=15.8, spaceAfter=9),
-    "section": ParagraphStyle("section", fontName="Arial-Bold", fontSize=14, leading=20, textColor=ink, spaceBefore=19, spaceAfter=12, keepWithNext=True),
+    "body": ParagraphStyle("body", fontName="Arial", fontSize=10.3, leading=15.8, spaceAfter=7),
+    "section": ParagraphStyle("section", fontName="Arial-Bold", fontSize=14, leading=20, textColor=ink, spaceBefore=15, spaceAfter=10, keepWithNext=True),
     "job": ParagraphStyle("job", fontName="Arial-Bold", fontSize=11, leading=16, textColor=ink, spaceAfter=4, keepWithNext=True),
     "date": ParagraphStyle("date", fontName="Arial", fontSize=9, leading=14, textColor=colors.HexColor("#51665b"), spaceAfter=7, keepWithNext=True),
 }
@@ -58,15 +58,15 @@ for lang, c in content.items():
         p('<link href="mailto:maratg2develop@gmail.com">maratg2develop@gmail.com</link> | +7 912 871-16-65', "contact", True),
         p('<link href="https://github.com/MaratG2">GitHub</link> | <link href="https://www.linkedin.com/in/maratg2/">LinkedIn</link> | <link href="https://t.me/maratg2">Telegram: @maratg2</link>', "contact", True),
         Spacer(1, 15), p(c["headline"]), p(c["introduction"]), p(c["experienceTitle"], "section")]
-    for item in c["experience"][:4]:
+    for item in c["experience"][:3]:
         flow += [p(f'{item["company"]} | {item["role"]}', "job"), p(item["period"], "date"), p(item["description"]), Spacer(1, 5)]
     flow += [PageBreak(), p(c["name"], "name"), p("ML Engineer", "role"),
-        p("Инженерная база" if lang == "ru" else "Engineering foundation", "section")]
-    item = c["experience"][4]
-    flow += [p(f'{item["company"]} | {item["role"]}', "job"), p(item["period"], "date"), p(item["description"]),
-        p("Компетенции" if lang == "ru" else "Expertise", "section")]
+        p("Опыт и инженерная база" if lang == "ru" else "Experience & engineering foundation", "section")]
+    for item in c["experience"][3:]:
+        flow += [p(f'{item["company"]} | {item["role"]}', "job"), p(item["period"], "date"), p(item["description"])]
+    flow += [p("Компетенции" if lang == "ru" else "Expertise", "section")]
     for skill in c["skills"]:
-        flow += [p(skill["title"], "job"), p(skill["description"]), p(skill["tools"], "date"), Spacer(1, 5)]
+        flow += [p(skill["title"], "job"), p(skill["description"])]
     flow += [p(c["educationTitle"], "section"), p(c["education"]), p(c["course"]), p(c["languages"])]
     doc.build(flow, onFirstPage=footer, onLaterPages=footer)
     copyfile(path, web / path.name)

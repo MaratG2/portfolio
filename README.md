@@ -25,9 +25,8 @@ page. Editable copy is in `docs/career/profile-copy.md`; the PDF generation sour
 `arial.ttf` and `arialbd.ttf`). The script writes review copies to `output/pdf` and copies
 the same PDFs into `public/cv`. Regenerate both when updating CV facts.
 
-Career positioning, replacement profile copy, claim provenance and researched open-source
-proposals are in [docs/career/README.md](docs/career/README.md). These are preparation
-materials, not published profile changes. Do not add internal employer information.
+Ready-to-use HH, LinkedIn and GitHub copy is indexed in [docs/career/README.md](docs/career/README.md), separately from the working guide analysis and assistant development plan.
+The Engineering approach section connects design decisions to delivered Artillect and Adventarium work. No external profile accounts have been changed. Do not add internal employer information.
 
 ## Coolify deployment
 

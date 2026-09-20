@@ -12,18 +12,24 @@
 
 ---
 
-### Building AI into the way businesses work
+### AI systems, from architecture to delivery
 
-I’m an **ML Engineer** building AI systems that automate business processes. I take responsibility for the technical implementation — from architecture and model evaluation to integrations and production deployment.
+I’m an **ML Engineer** building AI systems that automate business processes. My strength is **system design and technical ownership**, from architecture and model integration to evaluation and deployment.
 
-Previously, I built a generative AI services platform at **[krem.digital](https://krem.digital/)** and progressed to **CTO**, combining hands-on engineering with technical planning, hiring and team leadership.
+At **[krem.digital](https://krem.digital/)**, I built **Artillect** from scratch: a multimodal generation platform combining company-hosted GPU models, external model APIs, task distribution and RAG for prompt generation. I progressed from ML Engineer to **Lead ML Engineer and CTO**.
+
+At **Adventarium**, I built an AI game master using multi-stage workflows and set up **automated dataset-based evaluation, tracing and monitoring**.
 
 ### Engineering focus
 
-- **AI agents & automation** — systems that coordinate tools, data and decisions across multi-step business workflows.
-- **Applied ML & evaluation** — selecting and adapting models, measuring quality and checking results against business requirements.
-- **Production systems** — Python services, APIs and data pipelines, with the interfaces and infrastructure needed to put them to work.
-- **Generative media** — image, video and audio pipelines, including diffusion models and LoRA workflows.
+- **System design**: components, data flows and tradeoffs between quality, latency, cost and maintainability.
+- **LLM applications, agents & RAG**: model integration, retrieval, memory and multi-step workflows.
+- **Evaluation & operation**: automated answer evaluation, Langfuse tracing, Python services and deployment.
+- **Generative media**: image, video and audio pipelines, including LoRA training for visual tasks.
+
+### Portfolio
+
+My **[portfolio](https://github.com/MaratG2/portfolio)** brings together my experience, engineering approach and résumé in English and Russian.
 
 <sub>My software engineering foundation includes C# and Unity: interactive systems, multiplayer features and backend integrations.</sub>
 
