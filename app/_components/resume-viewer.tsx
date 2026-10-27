@@ -16,7 +16,7 @@ export default function ResumeViewer({ lang }: { lang: Language }) {
       <div className="cv-toolbar-inner">
         <Link href={ru ? "/" : "/en"} className="cv-back"><span aria-hidden="true">←</span>{ru ? "Назад" : "Back"}</Link>
         <h1>{profiles[lang].name}<span>ML Engineer</span></h1>
-        <a href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download className="button button-primary">{ru ? "Скачать PDF" : "Download PDF"}<Arrow down /></a>
+        <a href={`/cv/marat-gazizulin-cv-${lang}.pdf`} download className="btn btn-primary">{ru ? "Скачать PDF" : "Download PDF"}<Arrow down /></a>
       </div>
     </header>
     <div className="cv-pages">

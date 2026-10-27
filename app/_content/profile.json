@@ -5,16 +5,9 @@
     "description": "Марат Газизулин, ML Engineer. Проектирование AI-систем, агенты, RAG, автоматическая оценка качества и внедрение.",
     "headline": "Строю AI-системы, которые автоматизируют бизнес-процессы",
     "introduction": "Проектирую и внедряю AI-системы под бизнес-задачи: LLM-приложения, RAG и многоэтапные агентные процессы. Мой опыт объединяет архитектуру, backend и интеграции, автоматическую оценку на датасетах и трассировку. При выборе решения учитываю качество, скорость, стоимость и сложность поддержки.",
-    "nav": [
-      "Подход",
-      "Опыт",
-      "Компетенции"
-    ],
     "contactAction": "Связаться",
     "resumeAction": "Открыть резюме",
     "skip": "Перейти к содержимому",
-    "aboutTitle": "От архитектуры\nдо внедрения",
-    "aboutNote": "Агенты. Интеграции. Рабочие процессы.",
     "experienceTitle": "Инженерный опыт",
     "experience": [
       {
@@ -48,7 +41,6 @@
         "description": "Разрабатывал игровые и интерактивные системы: gameplay, multiplayer, инструменты и backend-интеграции. Инженерная база, на которой строится моя работа с AI."
       }
     ],
-    "skillsTitle": "Архитектура. Реализация.\nОценка качества.",
     "skills": [
       {
         "title": "Проектирование AI-систем",
@@ -84,48 +76,184 @@
     "contactText": "Интересуют роли ML Engineer: AI-системы, агенты, RAG и автоматизация. Особенно задачи, где нужно выбирать архитектуру, проверять качество и доводить решение до внедрения.",
     "emailLabel": "Написать на почту",
     "footer": "Марат Газизулин",
-    "pause": "Остановить анимацию",
-    "play": "Включить анимацию",
-    "sculpture": "Интерактивная абстрактная композиция",
-    "motionHint": "Движение курсора меняет ракурс",
     "backTop": "Наверх",
-    "engineering": {
-      "title": "Инженерный подход",
-      "intro": "Начинаю с задачи и ограничений. Архитектурное решение должно объяснять, почему выбранный вариант подходит и как проверить его на практике.",
-      "steps": [
+    "site": {
+      "nav": {
+        "work": "Проекты",
+        "open": "Open source",
+        "experience": "Опыт",
+        "stack": "Стек",
+        "contact": "Контакты"
+      },
+      "resume": "Резюме",
+      "motionOff": "Выключить анимацию",
+      "motionOn": "Включить анимацию",
+      "hero": {
+        "lede": "Агенты, RAG и мультимодальные пайплайны — от архитектуры до внедрения.",
+        "scroll": "Листайте",
+        "portraitAlt": "Портрет Марата Газизулина, собранный из точек"
+      },
+      "film": [
         {
-          "title": "Задача и критерии",
-          "description": "Что должен получить пользователь? Какие ошибки недопустимы? Какие есть ограничения по данным, времени и стоимости?"
+          "label": "Архитектура",
+          "text": "Требования превращаются в компоненты, потоки данных и распределение задач."
         },
         {
-          "title": "Варианты и компромиссы",
-          "description": "Сравнить простое базовое решение с более сложными вариантами. Обосновать компоненты и границы системы."
+          "label": "Мультимодальность",
+          "text": "Текст, изображения, видео, аудио и 3D: GPU-сервер компании и внешние API в одной платформе."
         },
         {
-          "title": "Эксперимент и проверка",
-          "description": "Проверить гипотезу на примерах, разобрать ошибки и сопоставить качество со скоростью и стоимостью."
-        },
-        {
-          "title": "Внедрение и обратная связь",
-          "description": "Продумать интеграции, обработку сбоев и поддержку. Пересматривать решение по результатам эксплуатации."
+          "label": "Оценка качества",
+          "text": "Автоматическая оценка на датасете, трассировка и мониторинг — до того, как решение уходит в работу."
         }
       ],
-      "evidenceTitle": "Как это проявляется в моём опыте",
-      "evidence": [
-        {
-          "title": "Artillect: единая платформа, разные способы исполнения",
-          "text": "Объединил модели на GPU-сервере компании через ComfyUI и внешние API через fal.ai. Спроектировал распределение задач и рендер-исполнители; добавил RAG для генерации промптов под выбранный тип."
+      "work": {
+        "title": "Избранные проекты",
+        "lede": "Начинаю с задачи и ограничений. Архитектурное решение должно объяснять, почему выбранный вариант подходит и как проверить его на практике.",
+        "artillect": {
+          "meta": "krem.digital · 2024 — 2026",
+          "role": "ML Engineer → Lead ML Engineer → CTO",
+          "title": "Artillect",
+          "summary": "Платформа генерации и редактирования текста, изображений, видео, аудио и 3D. Разработал с нуля и запустил.",
+          "points": [
+            "Архитектура, backend/API, распределение задач и рендер-исполнители",
+            "Модели на GPU-сервере компании через ComfyUI и внешние API через fal.ai за одним интерфейсом",
+            "RAG для генерации промптов с учётом выбранного типа",
+            "Затем — техническое планирование, найм, координация команды и сопровождение релизов"
+          ],
+          "link": "artillect.pro",
+          "diagram": {
+            "client": "Клиенты",
+            "api": "Backend · API",
+            "rag": "RAG · промпты",
+            "queue": "Распределение задач",
+            "workers": "Рендер-исполнители",
+            "gpu": "GPU-сервер · ComfyUI",
+            "external": "Внешние API · fal.ai",
+            "outputs": [
+              "Текст",
+              "Изображения",
+              "Видео",
+              "Аудио",
+              "3D"
+            ]
+          }
         },
-        {
-          "title": "Adventarium: многоэтапная логика и проверка качества",
-          "text": "Несколько workflow с более чем 100 узлами суммарно: модели, промпты, память и оркестрация. Качество ответов проверял автоматической оценкой на датасете; использовал трассировку и мониторинг."
+        "adventarium": {
+          "meta": "Adventarium · 2025 · частичная занятость",
+          "role": "ML Engineer",
+          "title": "AI-ведущий для RPG",
+          "summary": "Игровой ведущий на LLM для ролевых игр в Telegram и Discord.",
+          "points": [
+            "Несколько Dify-workflow, суммарно более 100 узлов: модели, промпты и память",
+            "Автоматическая оценка качества ответов на датасете, трассировка и мониторинг",
+            "API на Python, тесты, MySQL, лимиты и подписки"
+          ],
+          "diagram": {
+            "channels": "Telegram · Discord",
+            "api": "Python API",
+            "apiNote": "лимиты · подписки",
+            "workflows": "Dify-workflow",
+            "workflowsNote": "100+ узлов суммарно",
+            "eval": "Оценка на датасете",
+            "trace": "Трассировка · мониторинг",
+            "db": "MySQL",
+            "schematic": "Схема"
+          }
+        },
+        "agency": {
+          "meta": "Model Agency · 2025 · частичная занятость",
+          "role": "Lead ML Engineer",
+          "title": "Пайплайны fashion-контента",
+          "summary": "Требования, архитектура и окружения в Runpod и ComfyUI: кастомные ноды, сохранение внешности персонажей, управление позами и обучение LoRA."
         }
-      ]
-    },
-    "heroSummary": [
-      "Работаю с AI-агентами, RAG и мультимодальными моделями.",
-      "Моя сильная сторона — проектирование и разработка AI-систем: от архитектуры до внедрения."
-    ]
+      },
+      "open": {
+        "title": "Open source",
+        "lede": "Проекты в открытом доступе: локальные генеративные студии на моей видеокарте с 16 ГБ и эксперимент по контролю раскрытия данных в LLM-агентах.",
+        "repo": "Репозиторий",
+        "compare": "Сравнить исходное и отредактированное изображение",
+        "before": "Создано",
+        "after": "Отредактировано",
+        "prompt": "«Change the red teapot to deep blue ceramic. Keep the table and window light.»",
+        "projects": [
+          {
+            "id": "LocalAtelier",
+            "summary": "Самодостаточная локальная студия: проекты, генерация и редактирование изображений, 3D из изображения или текста, видео со звуком и управление моделями с проверкой контрольных сумм.",
+            "tags": [
+              "Python",
+              "Qwen-Image 2.1",
+              "HiDream-O1",
+              "TRELLIS.2",
+              "MIT"
+            ]
+          },
+          {
+            "id": "HiDreamGenerator",
+            "summary": "Локальная студия и MCP-сервер для HiDream-O1: React-интерфейс, Flask API с ограниченной GPU-очередью, прогресс через SSE и инструменты для агентов.",
+            "tags": [
+              "Python",
+              "React",
+              "Flask",
+              "MCP"
+            ]
+          }
+        ],
+        "allRepos": "Все репозитории",
+        "maskroute": {
+          "meta": "2026 · инженерный кейс",
+          "subtitle": "Контроль раскрытия данных в LLM-агентах",
+          "summary": "Экспериментальный Python SDK: модель видит непрозрачные ссылки, а исходные значения попадают только в разрешённые поля инструментов после актуальной проверки прав. Сравнил его с ручной реализацией на двух синтетических агентных приложениях.",
+          "metrics": [
+            {
+              "value": "34/34",
+              "label": "атакующих сценария отклонено в двух приложениях"
+            },
+            {
+              "value": "153 → 101",
+              "label": "строк кода интеграции против ручной реализации"
+            },
+            {
+              "value": "3/4",
+              "label": "корректных задачи во втором приложении: один задокументированный ложный отказ"
+            },
+            {
+              "value": "198",
+              "label": "тестов в четырёх конфигурациях CI: Windows/Linux × Python 3.11/3.14"
+            }
+          ],
+          "finding": "Главный вывод: идентичность данных и область их раскрытия — разные вещи. Контакт, общий для двух задач, был безопасно отклонён: это ложный отказ, а не утечка.",
+          "status": "Экспериментальный код, не готовый продукт для защиты данных",
+          "report": "Отчёт о проверке",
+          "source": "Исходный код",
+          "tags": [
+            "Python",
+            "LLM-агенты",
+            "Тестирование безопасности",
+            "mypy · Ruff",
+            "CI"
+          ]
+        }
+      },
+      "experience": {
+        "title": "Опыт",
+        "now": "Сейчас",
+        "education": "Образование",
+        "languages": "Языки",
+        "degree": "Программная инженерия, бакалавр",
+        "school": "ИжГТУ им. М. Т. Калашникова",
+        "ru": "Русский — родной",
+        "en": "Английский — B2"
+      },
+      "stack": {
+        "title": "Стек"
+      },
+      "contact": {
+        "copy": "Скопировать",
+        "copied": "Скопировано",
+        "download": "Скачать PDF"
+      }
+    }
   },
   "en": {
     "name": "Marat Gazizulin",
@@ -133,16 +261,9 @@
     "description": "Marat Gazizulin, ML Engineer. AI system design, agents, RAG, automated evaluation and delivery.",
     "headline": "I build AI systems that automate business processes",
     "introduction": "I design and deploy AI systems for business workflows: LLM applications, RAG and multi-step agent systems. My experience combines architecture, backend integration, automated dataset-based evaluation and tracing. I weigh quality, latency, cost and maintainability when choosing a solution.",
-    "nav": [
-      "Approach",
-      "Experience",
-      "Expertise"
-    ],
     "contactAction": "Get in touch",
     "resumeAction": "View résumé",
     "skip": "Skip to content",
-    "aboutTitle": "From architecture\nto implementation",
-    "aboutNote": "Agents. Integrations. Workflows.",
     "experienceTitle": "Engineering experience",
     "experience": [
       {
@@ -176,7 +297,6 @@
         "description": "Built game and interactive systems: gameplay, multiplayer, tooling and backend integrations. The software engineering foundation behind my AI work."
       }
     ],
-    "skillsTitle": "Architecture. Delivery.\nQuality evaluation.",
     "skills": [
       {
         "title": "AI system design",
@@ -212,47 +332,183 @@
     "contactText": "Interested in ML Engineer roles involving AI systems, agents, RAG and automation, with responsibility for architecture, quality evaluation and delivery.",
     "emailLabel": "Send an email",
     "footer": "Marat Gazizulin",
-    "pause": "Pause animation",
-    "play": "Play animation",
-    "sculpture": "Interactive abstract composition",
-    "motionHint": "Move your pointer to explore",
     "backTop": "Back to top",
-    "engineering": {
-      "title": "Engineering approach",
-      "intro": "Start with the problem and its constraints. An architecture decision should explain why an option fits and how to test it in practice.",
-      "steps": [
+    "site": {
+      "nav": {
+        "work": "Work",
+        "open": "Open source",
+        "experience": "Experience",
+        "stack": "Stack",
+        "contact": "Contact"
+      },
+      "resume": "Résumé",
+      "motionOff": "Turn animation off",
+      "motionOn": "Turn animation on",
+      "hero": {
+        "lede": "Agents, RAG and multimodal pipelines — from architecture to production.",
+        "scroll": "Scroll",
+        "portraitAlt": "Portrait of Marat Gazizulin rendered in points"
+      },
+      "film": [
         {
-          "title": "Define success",
-          "description": "What does the user need? Which errors are unacceptable? What constraints apply to data, time and cost?"
+          "label": "Architecture",
+          "text": "Requirements become components, data flows and task distribution."
         },
         {
-          "title": "Compare alternatives",
-          "description": "Compare a simple baseline with more complex options. Explain the components, system boundaries and tradeoffs."
+          "label": "Multimodal",
+          "text": "Text, image, video, audio and 3D — company GPUs and external APIs behind one platform."
         },
         {
-          "title": "Test the hypothesis",
-          "description": "Evaluate on representative examples, analyze failures and compare quality, latency and cost."
-        },
-        {
-          "title": "Deliver and revisit",
-          "description": "Plan integrations, failure handling and maintenance. Revisit decisions using evidence from operation."
+          "label": "Evaluation",
+          "text": "Dataset-based evaluation, tracing and monitoring before anything ships."
         }
       ],
-      "evidenceTitle": "Examples from my experience",
-      "evidence": [
-        {
-          "title": "Artillect: one platform, different execution paths",
-          "text": "Integrated company-hosted ComfyUI models and external APIs through fal.ai. Designed task distribution and render workers, and implemented RAG for generating prompts by type."
+      "work": {
+        "title": "Selected work",
+        "lede": "Start with the problem and its constraints. An architecture decision should explain why an option fits and how to test it in practice.",
+        "artillect": {
+          "meta": "krem.digital · 2024 — 2026",
+          "role": "ML Engineer → Lead ML Engineer → CTO",
+          "title": "Artillect",
+          "summary": "A platform for generating and editing text, image, video, audio and 3D. Built from scratch and launched.",
+          "points": [
+            "Architecture, backend APIs, task distribution and render workers",
+            "Company GPU models through ComfyUI and external APIs through fal.ai behind one interface",
+            "RAG that generates prompts for the selected prompt type",
+            "Then technical planning, hiring, team coordination and release support"
+          ],
+          "link": "artillect.pro",
+          "diagram": {
+            "client": "Clients",
+            "api": "Backend · API",
+            "rag": "RAG · prompts",
+            "queue": "Task distribution",
+            "workers": "Render workers",
+            "gpu": "GPU server · ComfyUI",
+            "external": "External APIs · fal.ai",
+            "outputs": [
+              "Text",
+              "Image",
+              "Video",
+              "Audio",
+              "3D"
+            ]
+          }
         },
-        {
-          "title": "Adventarium: staged logic with quality evaluation",
-          "text": "Multiple workflows with over 100 nodes in total: models, prompts, memory and orchestration. Evaluated answers automatically against a dataset and used tracing and monitoring."
+        "adventarium": {
+          "meta": "Adventarium · 2025 · part-time",
+          "role": "ML Engineer",
+          "title": "AI game master",
+          "summary": "An LLM game master for role-playing games in Telegram and Discord.",
+          "points": [
+            "Multiple Dify workflows, over 100 nodes in total: models, prompts and memory",
+            "Automated dataset-based evaluation of answer quality, tracing and monitoring",
+            "Python APIs, tests, MySQL, usage limits and subscriptions"
+          ],
+          "diagram": {
+            "channels": "Telegram · Discord",
+            "api": "Python API",
+            "apiNote": "limits · subscriptions",
+            "workflows": "Dify workflows",
+            "workflowsNote": "100+ nodes in total",
+            "eval": "Dataset evaluation",
+            "trace": "Tracing · monitoring",
+            "db": "MySQL",
+            "schematic": "Schematic"
+          }
+        },
+        "agency": {
+          "meta": "Model Agency · 2025 · part-time",
+          "role": "Lead ML Engineer",
+          "title": "Fashion-content pipelines",
+          "summary": "Requirements, architecture and environments on Runpod and ComfyUI: custom nodes, character consistency, pose control and LoRA training."
         }
-      ]
-    },
-    "heroSummary": [
-      "I work with AI agents, RAG and multimodal models.",
-      "I specialize in designing and building AI systems, from architecture through deployment."
-    ]
+      },
+      "open": {
+        "title": "Open source",
+        "lede": "Work in the open: local generative studios on my own 16 GB consumer GPU, and an experiment in controlling what LLM agents may disclose.",
+        "repo": "Repository",
+        "compare": "Compare the created and edited image",
+        "before": "Created",
+        "after": "Edited",
+        "prompt": "“Change the red teapot to deep blue ceramic. Keep the table and window light.”",
+        "projects": [
+          {
+            "id": "LocalAtelier",
+            "summary": "A self-contained local studio: projects, image generation and editing, image- or text-to-3D, video with sound, and model management with checksum verification.",
+            "tags": [
+              "Python",
+              "Qwen-Image 2.1",
+              "HiDream-O1",
+              "TRELLIS.2",
+              "MIT"
+            ]
+          },
+          {
+            "id": "HiDreamGenerator",
+            "summary": "A local studio and MCP server for HiDream-O1: React interface, Flask API with a bounded GPU queue, SSE progress and tools for agents.",
+            "tags": [
+              "Python",
+              "React",
+              "Flask",
+              "MCP"
+            ]
+          }
+        ],
+        "allRepos": "All repositories",
+        "maskroute": {
+          "meta": "2026 · Engineering case study",
+          "subtitle": "Policy-controlled disclosure for LLM agents",
+          "summary": "An experimental Python SDK: the model sees opaque references, and original values reach only authorized tool fields after a fresh permission check. I compared it with a handwritten boundary on two synthetic agent apps.",
+          "metrics": [
+            {
+              "value": "34/34",
+              "label": "defined attack scenarios rejected across both apps"
+            },
+            {
+              "value": "153 → 101",
+              "label": "lines of integration code vs the handwritten boundary"
+            },
+            {
+              "value": "3/4",
+              "label": "legitimate tasks in the second app: one documented false denial"
+            },
+            {
+              "value": "198",
+              "label": "tests on four CI configurations: Windows/Linux × Python 3.11/3.14"
+            }
+          ],
+          "finding": "Key finding: data identity and disclosure scope are different things. A contact shared by two issues was safely rejected: a false denial, not a leak.",
+          "status": "Experimental source, not a production security product",
+          "report": "Validation report",
+          "source": "Source",
+          "tags": [
+            "Python",
+            "LLM agents",
+            "Security testing",
+            "mypy · Ruff",
+            "CI"
+          ]
+        }
+      },
+      "experience": {
+        "title": "Experience",
+        "now": "Now",
+        "education": "Education",
+        "languages": "Languages",
+        "degree": "Software Engineering, Bachelor's degree",
+        "school": "Kalashnikov Izhevsk State Technical University",
+        "ru": "Russian — native",
+        "en": "English — B2"
+      },
+      "stack": {
+        "title": "Stack"
+      },
+      "contact": {
+        "copy": "Copy",
+        "copied": "Copied",
+        "download": "Download PDF"
+      }
+    }
   }
 }

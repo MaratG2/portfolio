@@ -1,94 +1,73 @@
 ---
-name: Marat Gazizulin Resume
-description: A bilingual resume with a real portrait, soft green surfaces and purposeful motion.
+name: Marat Gazizulin — Signal to System
+description: A dark, editorial portfolio whose hero is a scroll-scrubbed particle film built from the real portrait.
 colors:
-  paper: "#f2f6f3"
-  surface: "#ffffff"
-  ink: "#192a24"
-  muted: "#5c6c63"
-  green: "#276647"
-  line: "#dce5de"
-  pale: "#e8f1e9"
+  bg: "#0a0c0b"
+  bg-raise: "#0f1312"
+  surface: "#121715"
+  text: "#e7ede8"
+  text-2: "#b4bfb7"
+  muted: "#87948c"
+  faint: "#5a665f"
+  accent: "#7cf2a8"
+  accent-ink: "#04140b"
+  line: "rgb(226 236 229 / 0.09)"
+  line-strong: "rgb(226 236 229 / 0.17)"
 typography:
-  display:
-    fontFamily: "Manrope, sans-serif"
-    fontSize: "clamp(52px, 6vw, 76px)"
-    fontWeight: 650
-    lineHeight: 1.15
-    letterSpacing: "-0.04em"
-  headline:
-    fontFamily: "Manrope, sans-serif"
-    fontSize: "31px"
-    fontWeight: 600
-    lineHeight: 1.3
-    letterSpacing: "-0.04em"
-  body:
-    fontFamily: "Manrope, sans-serif"
-    fontSize: "15px"
-    lineHeight: 1.7
-  button:
-    fontFamily: "Manrope, sans-serif"
-    fontSize: "13px"
-    fontWeight: 600
-rounded:
-  tag: "5px"
-  button: "12px"
-  panel: "16px"
-  hero: "28px"
-spacing:
-  compact: "12px"
-  panel: "28px"
-  column: "40px"
-components:
-  button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.surface}"
-    typography: "{typography.button}"
-    rounded: "{rounded.button}"
-    padding: "14px 21px"
-  experience-panel:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.panel}"
+  display: "Geologica 500–600, latin + cyrillic"
+  mono: "JetBrains Mono 400–500, latin + cyrillic"
+  hero: "clamp(38px, 4.9vw, 76px) / 1.02, -0.038em"
+  section: "clamp(40px, 6vw, 88px) / 0.98, -0.045em"
+  body: "16–18px / 1.55–1.65"
+  label: "12px mono, uppercase, 0.06–0.08em"
+radius: { pill: "999px", card: "20–22px", media: "12–14px", diagram-box: "8px" }
+layout: { max: "1320px", gutter: "clamp(16px, 4vw, 56px)", breakpoints: ["1080px", "760px", "700px (diagrams)", "380px"] }
 ---
-# Design System: Marat Gazizulin Resume
+# Design System: Signal to System
 
-## Overview
-**Creative North Star: "The Personal Résumé"**
+## Concept
+The page tells one story: a person becomes a system. The hero is the user's real portrait (`public/photo.png`)
+rendered as ~12k points; scrolling scrubs those same points through three scenes — a pipeline graph
+(Architecture), a rotating point cloud (Multimodal), and a scatter converging onto a curve (Evaluation).
+Every frame is a pure function of scroll position, so scrolling back rewinds it. The rest of the page is
+quiet, editorial and evidence-first: case studies with system diagrams, real open-source screenshots, a
+compact timeline, the stack, and a large contact block.
 
-White résumé panels sit on a light green field. A real portrait, readable career history and direct contact actions carry the identity; depth and motion support that hierarchy. This documents the implemented direction, not a claim of user approval.
-
-**Key Characteristics:**
-- Clear role typography and compact profile composition.
-- Soft green surfaces, rounded panels and restrained shadows.
-- Optional motion with readable content before JavaScript.
-
-## Colors
-Primary green marks specialization, focus and selected accents. Ink handles headings and primary actions. Paper, surface and pale provide background separation; muted handles supporting copy; line separates related content. Decorative ambient gradients are CSS accents rather than additional semantic colors.
+## Color
+Near-black with a faint green cast; one accent, phosphor mint `#7cf2a8`, continuing the green identity of the
+previous site. Accent marks signal only: live dots, section indices, role progression, diagram packets,
+primary buttons. Everything else is text greys on hairlines. The page is dark-only by design; print switches
+to a white palette.
 
 ## Typography
-Manrope is the shared display and body family, provided through the existing font variable. The display role is the desktop hero; responsive overrides are intentional. Experience headings use 20px/1.4 and supporting descriptions use 13px/1.9 with a 65ch maximum. Labels range from 10–13px; do not promote these compact labels into body copy.
+Geologica carries headings and body (variable, Cyrillic support is required for the RU page). JetBrains Mono is
+the engineering voice: labels, meta lines, periods, tags, nav. Headings are tight (negative tracking), body
+copy stays at 16px or larger. Font variables are attached to `<html>` so `:root` tokens resolve.
 
 ## Layout
-The centered container has a 1120px maximum and 40px outer gutters. The desktop hero pairs flexible copy with a 232px portrait column; career content pairs a flexible timeline with a 285px education column. Expertise uses a statement beside two skill columns.
-Breakpoints are 1050px, 800px, 680px and 370px. Outer gutters become 24px at 800px and 16px at 680px. At 680px the portrait precedes copy, career and skill columns stack, and the section navigator fills the container. Below 370px the display is 36px. The navigator is sticky at 16px desktop / 10px mobile.
+Sections share a header pattern: hairline rule, mono index (01–05), large title, optional lede on the right.
+Case studies are a sticky copy column (4fr) beside a figure (7fr); they stack below 1080px. Diagrams render a
+wide SVG and a separate vertical SVG below 700px rather than shrinking text.
 
-## Elevation & Depth
-Diffuse shadows lift the profile, portrait and navigator. Career panels gain a subtle shadow when open or hovered. The navigator uses translucent fill and 16px backdrop blur; reduced-transparency preference removes that blur.
-Pointer-driven portrait tilt uses 900px perspective and a maximum of ±6 degrees per axis. The small expertise orbit and background ribbons are CSS geometry. There is no WebGL scene or large decorative hero model.
+## Motion
+- Hero film: `app/_components/hero-film.tsx`, 2D canvas, 360vh pinned stage. Segments: portrait hold →
+  0.08–0.30 graph → 0.42–0.60 knot → 0.70–0.86 curve. Particles carry per-point delay and swirl; idle drift is
+  sub-pixel. Mouse repels points in the portrait scene. Rendering stops when the hero is off-screen.
+- Diagrams: lines draw in once in view, then accent packets flow along edges; the Adventarium workflow
+  highlights a trace path. Labelled "Schematic" — it illustrates scale, not the real graph.
+- Reveals: 900ms rise once per element via `[data-reveal]`.
+- Motion is off on the server, without JavaScript and under `prefers-reduced-motion`; the header dot toggles it
+  and an explicit choice (stored as `localStorage.motion`) overrides the OS preference. With motion off the hero
+  is a static portrait with the three captions listed beneath.
 
-## Shapes
-Buttons have compact rounded corners; career and education panels use the panel radius. The desktop hero is more generously rounded, reducing to 22px on mobile. The portrait has a white mat; the language switch and icon controls use circular/pill shapes.
+## Assets and provenance
+- `public/photo.png`: the user's own portrait, unchanged. `public/hero/field.png` is derived from it by
+  `scripts/build-site-assets.mjs` (brightness field with the foliage background suppressed).
+- `public/work/*.webp`: screenshots and model outputs from Marat's public repositories LocalAtelier and
+  HiDreamGenerator (their `docs/` folders), converted to WebP. No generated or third-party imagery otherwise.
 
-## Components
-Primary contact and secondary PDF actions are immediate links. Buttons have a 51px minimum height (48px mobile), magnetic mouse feedback, hover color changes and a 0.97 pressed scale. Keyboard focus uses a 2px green outline with 5px offset.
-The floating section navigator tracks reading position with a sliding selected surface. Experience uses native details/summary controls; the first two entries start open. Pointer expansion animates for 280ms; keyboard and reduced-motion toggles remain immediate.
-Hero entrance spans 700–1000ms with short staggered delays. Section reveals run once for 650ms. Ambient lights/ribbons loop slowly (12–20s); the small orbit rotates over 25s. The global animation switch and OS reduced-motion preference disable motion. Content remains present without JavaScript; print removes decoration and expands experience content.
-The portrait is the user's pre-existing `public/photo.png`, unchanged. All remaining decoration is CSS; no generated raster assets are introduced.
-
-## Do's and Don'ts
-- Do retain the real portrait, localized specialization and immediate contact/PDF links.
-- Do preserve visible keyboard focus, native disclosures and reduced-motion behavior.
-- Do keep supporting motion subordinate to readable résumé content.
-- Don't reintroduce the rejected large 3D hero sculpture.
-- Don't treat decorative gradients or one-off colors as new semantic roles.
-
+## Do / Don't
+- Do keep every claim inside `docs/career/evidence-register.md`; diagrams use only approved components.
+- Do keep the role and contact actions visible in the first viewport.
+- Don't add a second accent colour or decorative gradients without a semantic role.
+- Don't show current-employer (ORO) projects, screenshots or metrics until they are approved in the register.
