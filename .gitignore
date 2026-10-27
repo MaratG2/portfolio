@@ -28,6 +28,8 @@ dist
 logs
 /public/*
 !/public/cv/
+!/public/hero/
+!/public/work/
 .cache
 .vscode
 .DS_Store
