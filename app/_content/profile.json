@@ -72,8 +72,8 @@
     "education": "ИжГТУ им. М. Т. Калашникова · Программная инженерия, бакалавр, 2024.",
     "course": "OTUS · Unity Game Developer Professional, 2023.",
     "languages": "Русский · родной / Английский · B2",
-    "contactTitle": "Давайте создадим\nчто-то полезное",
-    "contactText": "Интересуют роли ML Engineer: AI-системы, агенты, RAG и автоматизация. Особенно задачи, где нужно выбирать архитектуру, проверять качество и доводить решение до внедрения.",
+    "contactTitle": "Напишите мне",
+    "contactText": "Рассматриваю роли ML Engineer: LLM-системы, агенты, RAG и автоматизация процессов.",
     "emailLabel": "Написать на почту",
     "footer": "Марат Газизулин",
     "backTop": "Наверх",
@@ -82,44 +82,41 @@
         "work": "Проекты",
         "open": "Open source",
         "experience": "Опыт",
-        "stack": "Стек",
+        "stack": "Навыки",
         "contact": "Контакты"
       },
       "resume": "Резюме",
-      "motionOff": "Выключить анимацию",
-      "motionOn": "Включить анимацию",
       "hero": {
-        "lede": "Агенты, RAG и мультимодальные пайплайны — от архитектуры до внедрения.",
-        "scroll": "Листайте",
+        "role": "ML Engineer в ORO",
+        "lede": "Строю LLM-системы от архитектуры до продакшена: агенты, RAG, оценка качества. До этого был CTO в krem.digital и с нуля сделал Artillect, платформу генерации текста, изображений, видео, аудио и 3D.",
         "portraitAlt": "Марат Газизулин"
       },
       "film": [
         {
           "label": "Архитектура",
-          "text": "Требования превращаются в компоненты, потоки данных и распределение задач."
+          "text": "Artillect: backend, распределение задач и рендер-исполнители на GPU-сервере компании."
         },
         {
           "label": "Мультимодальность",
-          "text": "Текст, изображения, видео, аудио и 3D: GPU-сервер компании и внешние API в одной платформе."
+          "text": "Текст, изображения, видео, аудио и 3D в одном продукте."
         },
         {
           "label": "Оценка качества",
-          "text": "Автоматическая оценка на датасете, трассировка и мониторинг — до того, как решение уходит в работу."
+          "text": "AI-ведущий Adventarium: качество ответов проверяется на датасете, есть трассировка и мониторинг."
         }
       ],
       "work": {
-        "title": "Избранные проекты",
-        "lede": "Начинаю с задачи и ограничений. Архитектурное решение должно объяснять, почему выбранный вариант подходит и как проверить его на практике.",
+        "title": "Проекты",
         "artillect": {
-          "meta": "krem.digital · 2024 — 2026",
+          "meta": "krem.digital, 2024–2026",
           "role": "ML Engineer → Lead ML Engineer → CTO",
           "title": "Artillect",
-          "summary": "Платформа генерации и редактирования текста, изображений, видео, аудио и 3D. Разработал с нуля и запустил.",
+          "summary": "Платформа генерации и редактирования текста, изображений, видео, аудио и 3D. Построил её с нуля и запустил, а со временем стал CTO компании.",
           "points": [
-            "Архитектура, backend/API, распределение задач и рендер-исполнители",
-            "Модели на GPU-сервере компании через ComfyUI и внешние API через fal.ai за одним интерфейсом",
-            "RAG для генерации промптов с учётом выбранного типа",
-            "Затем — техническое планирование, найм, координация команды и сопровождение релизов"
+            "Архитектура, backend и API, распределение задач, рендер-исполнители",
+            "Модели на GPU-сервере компании через ComfyUI и внешние модели через fal.ai за одним API",
+            "RAG, который составляет промпт под выбранный тип генерации",
+            "Как CTO: планирование, найм, координация команды, релизы"
           ],
           "link": "artillect.pro",
           "diagram": {
@@ -140,13 +137,13 @@
           }
         },
         "adventarium": {
-          "meta": "Adventarium · 2025 · частичная занятость",
+          "meta": "Adventarium, 2025",
           "role": "ML Engineer",
-          "title": "AI-ведущий для RPG",
-          "summary": "Игровой ведущий на LLM для ролевых игр в Telegram и Discord.",
+          "title": "AI-ведущий для ролевых игр",
+          "summary": "Ведёт ролевую игру в Telegram и Discord: описывает мир, отыгрывает персонажей и помнит, что происходило раньше.",
           "points": [
-            "Несколько Dify-workflow, суммарно более 100 узлов: модели, промпты и память",
-            "Автоматическая оценка качества ответов на датасете, трассировка и мониторинг",
+            "Несколько workflow в Dify, больше 100 узлов суммарно: разные модели, промпты и память",
+            "Автоматическая оценка ответов на датасете, трассировка и мониторинг",
             "API на Python, тесты, MySQL, лимиты и подписки"
           ],
           "diagram": {
@@ -162,82 +159,159 @@
           }
         },
         "agency": {
-          "meta": "Model Agency · 2025 · частичная занятость",
+          "meta": "Model Agency, 2025",
           "role": "Lead ML Engineer",
-          "title": "Пайплайны fashion-контента",
-          "summary": "Требования, архитектура и окружения в Runpod и ComfyUI: кастомные ноды, сохранение внешности персонажей, управление позами и обучение LoRA."
+          "title": "Генерация fashion-контента",
+          "summary": "Пайплайны на ComfyUI и Runpod: кастомные ноды, сохранение внешности персонажей, управление позами, обучение LoRA."
         }
       },
       "open": {
         "title": "Open source",
-        "lede": "Проекты в открытом доступе: локальные генеративные студии на моей видеокарте с 16 ГБ и эксперимент по контролю раскрытия данных в LLM-агентах.",
-        "repo": "Репозиторий",
-        "compare": "Сравнить исходное и отредактированное изображение",
-        "before": "Создано",
-        "after": "Отредактировано",
-        "prompt": "«Change the red teapot to deep blue ceramic. Keep the table and window light.»",
+        "repo": "GitHub",
         "projects": [
           {
             "id": "LocalAtelier",
-            "summary": "Самодостаточная локальная студия: проекты, генерация и редактирование изображений, 3D из изображения или текста, видео со звуком и управление моделями с проверкой контрольных сумм.",
+            "summary": "Локальная студия генерации: изображения и их редактирование, 3D из картинки или текста, видео со звуком. Работает на одной видеокарте с 16 ГБ, целостность моделей проверяет по контрольным суммам.",
             "tags": [
               "Python",
               "Qwen-Image 2.1",
               "HiDream-O1",
-              "TRELLIS.2",
-              "MIT"
-            ]
-          },
-          {
-            "id": "HiDreamGenerator",
-            "summary": "Локальная студия и MCP-сервер для HiDream-O1: React-интерфейс, Flask API с ограниченной GPU-очередью, прогресс через SSE и инструменты для агентов.",
-            "tags": [
-              "Python",
-              "React",
-              "Flask",
-              "MCP"
+              "TRELLIS.2"
             ]
           }
         ],
-        "allRepos": "Все репозитории",
+        "allRepos": "Остальные репозитории на GitHub",
         "maskroute": {
-          "meta": "2026 · инженерный кейс",
-          "subtitle": "Контроль раскрытия данных в LLM-агентах",
-          "summary": "Экспериментальный Python SDK: модель видит непрозрачные ссылки, а исходные значения попадают только в разрешённые поля инструментов после актуальной проверки прав. Сравнил его с ручной реализацией на двух синтетических агентных приложениях.",
+          "subtitle": "Персональные данные в LLM-агентах",
+          "summary": "Python SDK, при котором модель видит не сами данные, а ссылки на них. Настоящие значения подставляются только в разрешённые поля инструментов и только после проверки прав. Проверил на двух агентных приложениях против ручной реализации.",
           "metrics": [
             {
               "value": "34/34",
-              "label": "атакующих сценария отклонено в двух приложениях"
+              "label": "атакующих сценария отклонены"
             },
             {
               "value": "153 → 101",
-              "label": "строк кода интеграции против ручной реализации"
-            },
-            {
-              "value": "3/4",
-              "label": "корректных задачи во втором приложении: один задокументированный ложный отказ"
+              "label": "строк интеграционного кода: вручную и с SDK"
             },
             {
               "value": "198",
-              "label": "тестов в четырёх конфигурациях CI: Windows/Linux × Python 3.11/3.14"
+              "label": "тестов в CI на Windows и Linux, Python 3.11 и 3.14"
             }
           ],
-          "finding": "Главный вывод: идентичность данных и область их раскрытия — разные вещи. Контакт, общий для двух задач, был безопасно отклонён: это ложный отказ, а не утечка.",
-          "status": "Экспериментальный код, не готовый продукт для защиты данных",
           "report": "Отчёт о проверке",
-          "source": "Исходный код",
+          "source": "Код",
           "tags": [
             "Python",
             "LLM-агенты",
-            "Тестирование безопасности",
-            "mypy · Ruff",
-            "CI"
+            "mypy",
+            "Ruff"
           ]
         }
       },
       "experience": {
         "title": "Опыт",
-        "now": "Сейчас",
+        "now": "сейчас",
+        "lines": [
+          "Техническая реализация AI-инструментов для автоматизации бизнес-процессов компании с командой из 250 человек.",
+          "Построил Artillect с нуля, потом руководил разработкой: планирование, найм, релизы.",
+          "AI-ведущий для ролевых игр в Telegram и Discord. Проектная работа.",
+          "Пайплайны генерации fashion-контента на ComfyUI и Runpod. Проектная работа.",
+          "Геймплей, мультиплеер, инструменты и интеграции с backend на C# и Unity."
+        ],
+        "more": "Подробнее",
+        "less": "Свернуть",
+        "details": [
+          null,
+          {
+            "intro": "Artillect — платформа генерации и редактирования текста, изображений, видео, аудио и 3D.",
+            "groups": [
+              {
+                "title": "Архитектура и разработка",
+                "items": [
+                  "Требования, архитектура, backend и API",
+                  "Распределение задач и рендер-исполнители",
+                  "Модели на GPU-сервере компании через ComfyUI и внешние модели через fal.ai в одной платформе",
+                  "RAG для генерации промптов под выбранный тип"
+                ]
+              },
+              {
+                "title": "Руководство",
+                "items": [
+                  "Запуск и сопровождение релизов",
+                  "Техническое планирование",
+                  "Найм и координация команды"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "fal.ai", "RAG", "GPU-сервер"]
+          },
+          {
+            "intro": "Частичная занятость, параллельно с krem.digital.",
+            "groups": [
+              {
+                "title": "LLM и агенты",
+                "items": [
+                  "Несколько workflow в Dify, больше 100 узлов суммарно",
+                  "Разные модели и промпты на разных этапах",
+                  "Память и база знаний"
+                ]
+              },
+              {
+                "title": "Качество",
+                "items": [
+                  "Автоматическая оценка ответов на датасете",
+                  "Трассировка и мониторинг"
+                ]
+              },
+              {
+                "title": "Backend",
+                "items": [
+                  "API на Python и тесты",
+                  "MySQL",
+                  "Лимиты и подписки"
+                ]
+              }
+            ],
+            "tools": ["Dify", "Python", "MySQL"]
+          },
+          {
+            "intro": "Частичная занятость, параллельно с krem.digital.",
+            "groups": [
+              {
+                "title": "Пайплайны",
+                "items": [
+                  "Уточнение требований",
+                  "Архитектура и окружения в Runpod и ComfyUI",
+                  "Кастомные ноды"
+                ]
+              },
+              {
+                "title": "Генерация",
+                "items": [
+                  "Сохранение внешности персонажей",
+                  "Управление позами",
+                  "Обучение LoRA"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "Runpod", "LoRA"]
+          },
+          {
+            "intro": "Игры и интерактивные проекты в нескольких командах.",
+            "groups": [
+              {
+                "title": "Что делал",
+                "items": [
+                  "Геймплей",
+                  "Мультиплеер",
+                  "Инструменты для разработки",
+                  "Интеграции с backend"
+                ]
+              }
+            ],
+            "tools": ["C#", "Unity"]
+          }
+        ],
         "education": "Образование",
         "languages": "Языки",
         "degree": "Программная инженерия, бакалавр",
@@ -246,7 +320,7 @@
         "en": "Английский — B2"
       },
       "stack": {
-        "title": "Стек"
+        "title": "Навыки"
       },
       "contact": {
         "copy": "Скопировать",
@@ -328,8 +402,8 @@
     "education": "Kalashnikov Izhevsk State Technical University · Bachelor's degree, Software Engineering, 2024.",
     "course": "OTUS · Unity Game Developer Professional, 2023.",
     "languages": "Russian · native / English · B2",
-    "contactTitle": "Let's build\nsomething useful",
-    "contactText": "Interested in ML Engineer roles involving AI systems, agents, RAG and automation, with responsibility for architecture, quality evaluation and delivery.",
+    "contactTitle": "Get in touch",
+    "contactText": "Open to ML Engineer roles: LLM systems, agents, RAG and process automation.",
     "emailLabel": "Send an email",
     "footer": "Marat Gazizulin",
     "backTop": "Back to top",
@@ -338,44 +412,41 @@
         "work": "Work",
         "open": "Open source",
         "experience": "Experience",
-        "stack": "Stack",
+        "stack": "Skills",
         "contact": "Contact"
       },
       "resume": "Résumé",
-      "motionOff": "Turn animation off",
-      "motionOn": "Turn animation on",
       "hero": {
-        "lede": "Agents, RAG and multimodal pipelines — from architecture to production.",
-        "scroll": "Scroll",
+        "role": "ML Engineer at ORO",
+        "lede": "I build LLM systems from architecture to production: agents, RAG, evaluation. Before this I was CTO at krem.digital, where I built Artillect from scratch, a platform for generating text, images, video, audio and 3D.",
         "portraitAlt": "Marat Gazizulin"
       },
       "film": [
         {
           "label": "Architecture",
-          "text": "Requirements become components, data flows and task distribution."
+          "text": "Artillect: backend, task distribution and render workers on the company's GPU server."
         },
         {
           "label": "Multimodal",
-          "text": "Text, image, video, audio and 3D — company GPUs and external APIs behind one platform."
+          "text": "Text, images, video, audio and 3D in one product."
         },
         {
           "label": "Evaluation",
-          "text": "Dataset-based evaluation, tracing and monitoring before anything ships."
+          "text": "Adventarium's AI game master: answers are checked against a dataset, with tracing and monitoring."
         }
       ],
       "work": {
-        "title": "Selected work",
-        "lede": "Start with the problem and its constraints. An architecture decision should explain why an option fits and how to test it in practice.",
+        "title": "Work",
         "artillect": {
-          "meta": "krem.digital · 2024 — 2026",
+          "meta": "krem.digital, 2024–2026",
           "role": "ML Engineer → Lead ML Engineer → CTO",
           "title": "Artillect",
-          "summary": "A platform for generating and editing text, image, video, audio and 3D. Built from scratch and launched.",
+          "summary": "A platform for generating and editing text, images, video, audio and 3D. I built it from scratch, launched it, and became the company's CTO along the way.",
           "points": [
-            "Architecture, backend APIs, task distribution and render workers",
-            "Company GPU models through ComfyUI and external APIs through fal.ai behind one interface",
-            "RAG that generates prompts for the selected prompt type",
-            "Then technical planning, hiring, team coordination and release support"
+            "Architecture, backend and APIs, task distribution, render workers",
+            "Models on the company GPU server through ComfyUI and external models through fal.ai behind one API",
+            "RAG that writes the prompt for the selected generation type",
+            "As CTO: planning, hiring, team coordination, releases"
           ],
           "link": "artillect.pro",
           "diagram": {
@@ -396,13 +467,13 @@
           }
         },
         "adventarium": {
-          "meta": "Adventarium · 2025 · part-time",
+          "meta": "Adventarium, 2025",
           "role": "ML Engineer",
           "title": "AI game master",
-          "summary": "An LLM game master for role-playing games in Telegram and Discord.",
+          "summary": "Runs role-playing games in Telegram and Discord: describes the world, plays the characters and remembers what happened earlier.",
           "points": [
-            "Multiple Dify workflows, over 100 nodes in total: models, prompts and memory",
-            "Automated dataset-based evaluation of answer quality, tracing and monitoring",
+            "Several Dify workflows, over 100 nodes in total: different models, prompts and memory",
+            "Automated answer evaluation on a dataset, tracing and monitoring",
             "Python APIs, tests, MySQL, usage limits and subscriptions"
           ],
           "diagram": {
@@ -418,82 +489,159 @@
           }
         },
         "agency": {
-          "meta": "Model Agency · 2025 · part-time",
+          "meta": "Model Agency, 2025",
           "role": "Lead ML Engineer",
-          "title": "Fashion-content pipelines",
-          "summary": "Requirements, architecture and environments on Runpod and ComfyUI: custom nodes, character consistency, pose control and LoRA training."
+          "title": "Fashion content generation",
+          "summary": "Pipelines on ComfyUI and Runpod: custom nodes, character consistency, pose control, LoRA training."
         }
       },
       "open": {
         "title": "Open source",
-        "lede": "Work in the open: local generative studios on my own 16 GB consumer GPU, and an experiment in controlling what LLM agents may disclose.",
-        "repo": "Repository",
-        "compare": "Compare the created and edited image",
-        "before": "Created",
-        "after": "Edited",
-        "prompt": "“Change the red teapot to deep blue ceramic. Keep the table and window light.”",
+        "repo": "GitHub",
         "projects": [
           {
             "id": "LocalAtelier",
-            "summary": "A self-contained local studio: projects, image generation and editing, image- or text-to-3D, video with sound, and model management with checksum verification.",
+            "summary": "A local generation studio: images and image editing, 3D from a picture or text, video with sound. Runs on a single 16 GB GPU and verifies its models by checksum.",
             "tags": [
               "Python",
               "Qwen-Image 2.1",
               "HiDream-O1",
-              "TRELLIS.2",
-              "MIT"
-            ]
-          },
-          {
-            "id": "HiDreamGenerator",
-            "summary": "A local studio and MCP server for HiDream-O1: React interface, Flask API with a bounded GPU queue, SSE progress and tools for agents.",
-            "tags": [
-              "Python",
-              "React",
-              "Flask",
-              "MCP"
+              "TRELLIS.2"
             ]
           }
         ],
-        "allRepos": "All repositories",
+        "allRepos": "More repositories on GitHub",
         "maskroute": {
-          "meta": "2026 · Engineering case study",
-          "subtitle": "Policy-controlled disclosure for LLM agents",
-          "summary": "An experimental Python SDK: the model sees opaque references, and original values reach only authorized tool fields after a fresh permission check. I compared it with a handwritten boundary on two synthetic agent apps.",
+          "subtitle": "Personal data in LLM agents",
+          "summary": "A Python SDK where the model sees references instead of the data itself. Real values go only into permitted tool fields, and only after a permission check. Tested on two agent apps against a handwritten implementation.",
           "metrics": [
             {
               "value": "34/34",
-              "label": "defined attack scenarios rejected across both apps"
+              "label": "attack scenarios rejected"
             },
             {
               "value": "153 → 101",
-              "label": "lines of integration code vs the handwritten boundary"
-            },
-            {
-              "value": "3/4",
-              "label": "legitimate tasks in the second app: one documented false denial"
+              "label": "lines of integration code: handwritten vs with the SDK"
             },
             {
               "value": "198",
-              "label": "tests on four CI configurations: Windows/Linux × Python 3.11/3.14"
+              "label": "tests in CI on Windows and Linux, Python 3.11 and 3.14"
             }
           ],
-          "finding": "Key finding: data identity and disclosure scope are different things. A contact shared by two issues was safely rejected: a false denial, not a leak.",
-          "status": "Experimental source, not a production security product",
           "report": "Validation report",
-          "source": "Source",
+          "source": "Code",
           "tags": [
             "Python",
             "LLM agents",
-            "Security testing",
-            "mypy · Ruff",
-            "CI"
+            "mypy",
+            "Ruff"
           ]
         }
       },
       "experience": {
         "title": "Experience",
-        "now": "Now",
+        "now": "now",
+        "lines": [
+          "Technical implementation of AI tools for business process automation at a company of 250 people.",
+          "Built Artillect from scratch, then led engineering: planning, hiring, releases.",
+          "AI game master for role-playing games in Telegram and Discord. Project work.",
+          "Fashion content generation pipelines on ComfyUI and Runpod. Project work.",
+          "Gameplay, multiplayer, tooling and backend integrations in C# and Unity."
+        ],
+        "more": "Details",
+        "less": "Hide",
+        "details": [
+          null,
+          {
+            "intro": "Artillect is a platform for generating and editing text, images, video, audio and 3D.",
+            "groups": [
+              {
+                "title": "Architecture and development",
+                "items": [
+                  "Requirements, architecture, backend and APIs",
+                  "Task distribution and render workers",
+                  "Models on the company GPU server through ComfyUI and external models through fal.ai in one platform",
+                  "RAG that generates prompts for the selected type"
+                ]
+              },
+              {
+                "title": "Leadership",
+                "items": [
+                  "Launch and release support",
+                  "Technical planning",
+                  "Hiring and team coordination"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "fal.ai", "RAG", "GPU server"]
+          },
+          {
+            "intro": "Part-time, alongside krem.digital.",
+            "groups": [
+              {
+                "title": "LLM and agents",
+                "items": [
+                  "Several Dify workflows, over 100 nodes in total",
+                  "Different models and prompts at different stages",
+                  "Memory and knowledge base"
+                ]
+              },
+              {
+                "title": "Quality",
+                "items": [
+                  "Automated answer evaluation on a dataset",
+                  "Tracing and monitoring"
+                ]
+              },
+              {
+                "title": "Backend",
+                "items": [
+                  "Python APIs and tests",
+                  "MySQL",
+                  "Usage limits and subscriptions"
+                ]
+              }
+            ],
+            "tools": ["Dify", "Python", "MySQL"]
+          },
+          {
+            "intro": "Part-time, alongside krem.digital.",
+            "groups": [
+              {
+                "title": "Pipelines",
+                "items": [
+                  "Clarifying requirements",
+                  "Architecture and environments on Runpod and ComfyUI",
+                  "Custom nodes"
+                ]
+              },
+              {
+                "title": "Generation",
+                "items": [
+                  "Character consistency",
+                  "Pose control",
+                  "LoRA training"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "Runpod", "LoRA"]
+          },
+          {
+            "intro": "Games and interactive projects across several teams.",
+            "groups": [
+              {
+                "title": "What I worked on",
+                "items": [
+                  "Gameplay",
+                  "Multiplayer",
+                  "Development tooling",
+                  "Backend integrations"
+                ]
+              }
+            ],
+            "tools": ["C#", "Unity"]
+          }
+        ],
         "education": "Education",
         "languages": "Languages",
         "degree": "Software Engineering, Bachelor's degree",
@@ -502,7 +650,7 @@
         "en": "English — B2"
       },
       "stack": {
-        "title": "Stack"
+        "title": "Skills"
       },
       "contact": {
         "copy": "Copy",

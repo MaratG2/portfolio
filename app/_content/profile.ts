@@ -21,7 +21,6 @@ export const projectMeta: Record<string, { repo: string; year: string; images?: 
       { src: "/work/local-atelier-3d.webp", width: 1536, height: 1024, label: "3D" },
     ],
   },
-  HiDreamGenerator: { repo: "https://github.com/MaratG2/HiDreamGenerator", year: "2026" },
 };
 
 // MaskRoute results come from its validation branch at commit 215c5365 (26 October 2026).

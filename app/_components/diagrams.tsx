@@ -150,7 +150,7 @@ export function AdventariumDiagram({ labels }: { labels: AdventariumLabels }) {
       <rect className="workflow-frame" x={400} y={40} width={384} height={290} rx={10} />
       <text className="box-label" x={416} y={68}>{labels.workflows}</text>
       <text className="box-note" x={416} y={86}>{labels.workflowsNote}</text>
-      <text className="diagram-tag" x={768} y={68} textAnchor="end">{labels.schematic.toUpperCase()}</text>
+      <text className="diagram-tag" x={768} y={68} textAnchor="end">{labels.schematic}</text>
       {wideGraph.el}
     </g>,
   };
@@ -175,7 +175,7 @@ export function AdventariumDiagram({ labels }: { labels: AdventariumLabels }) {
       <rect className="workflow-frame" x={8} y={250} width={344} height={286} rx={10} />
       <text className="box-label" x={22} y={276}>{labels.workflows}</text>
       <text className="box-note" x={22} y={294}>{labels.workflowsNote}</text>
-      <text className="diagram-tag" x={338} y={276} textAnchor="end">{labels.schematic.toUpperCase()}</text>
+      <text className="diagram-tag" x={338} y={276} textAnchor="end">{labels.schematic}</text>
       {narrowGraph.el}
     </g>,
   };

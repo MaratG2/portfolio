@@ -339,7 +339,6 @@ export default function HeroFilm({ copy, captions, fallback }: { copy: ReactNode
       <div ref={copyRef} className="film-copy">{copy}</div>
       <ol className="film-captions">
         {captions.map((c, n) => <li key={c.label} ref={li => { captionRefs.current[n] = li; }}>
-          <span className="film-index">{String(n + 1).padStart(2, "0")}</span>
           <strong>{c.label}</strong>
           <p>{c.text}</p>
         </li>)}

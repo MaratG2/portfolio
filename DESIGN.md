@@ -37,17 +37,23 @@ compact timeline, the stack, and a large contact block.
 
 ## Color
 Near-black with a faint green cast; one accent, phosphor mint `#7cf2a8`, continuing the green identity of the
-previous site. Accent marks signal only: live dots, section indices, role progression, diagram packets,
+previous site. Accent marks signal only: the hero role line, list dashes, the lead metric, diagram packets,
 primary buttons. Everything else is text greys on hairlines. The page is dark-only by design; print switches
 to a white palette.
 
 ## Typography
-Geologica carries headings and body (variable, Cyrillic support is required for the RU page). JetBrains Mono is
-the engineering voice: labels, meta lines, periods, tags, nav. Headings are tight (negative tracking), body
-copy stays at 16px or larger. Font variables are attached to `<html>` so `:root` tokens resolve.
+Geologica carries everything a visitor reads (variable, Cyrillic support is required for the RU page), in
+sentence case. JetBrains Mono is limited to diagram notes. Headings are tight (negative tracking), body copy
+stays at 15px or larger. Font variables are attached to `<html>` so `:root` tokens resolve.
+
+## Copy
+Written for a recruiter scanning in under a minute: name, role, what was built, where, when. Facts over
+adjectives, plain sentences over label chains. Not used (rejected October 2026 as template-looking): mono
+uppercase eyebrows and meta lines joined with `·`, pulsing "live" dots, numbered section and card indices,
+"scroll" hints, mission-statement ledes, and warning-style disclaimers on projects.
 
 ## Layout
-Sections share a header pattern: hairline rule, mono index (01–05), large title, optional lede on the right.
+Sections share a header pattern: hairline rule and a large title.
 Case studies are a sticky copy column (4fr) beside a figure (7fr); they stack below 1080px. Diagrams render a
 wide SVG and a separate vertical SVG below 700px rather than shrinking text.
 
@@ -59,16 +65,16 @@ wide SVG and a separate vertical SVG below 700px rather than shrinking text.
 - Diagrams: lines draw in once in view, then accent packets flow along edges; the Adventarium workflow
   highlights a trace path. Labelled "Schematic" — it illustrates scale, not the real graph.
 - Reveals: 900ms rise once per element via `[data-reveal]`.
-- Motion is off on the server, without JavaScript and under `prefers-reduced-motion`; the header dot toggles it
-  and an explicit choice (stored as `localStorage.motion`) overrides the OS preference. With motion off the hero
-  is a static portrait with the three captions listed beneath.
+- Motion is on for every visitor once the page hydrates, including under `prefers-reduced-motion` (the film is
+  scrubbed by the visitor's own scroll); that preference only stops the looping diagram packets. The server and
+  no-JS render are static: the portrait with the three captions listed beneath.
 
 ## Assets and provenance
 - `public/photo.png`: the user's own portrait, unchanged. `scripts/build-site-assets.mjs` derives
   `public/hero/portrait.webp` (960px colour copy drawn on the canvas) and `public/hero/field.png` (112×112,
   48-colour quantized copy; one particle per pixel).
-- `public/work/*.webp`: screenshots and model outputs from Marat's public repositories LocalAtelier and
-  HiDreamGenerator (their `docs/` folders), converted to WebP. No generated or third-party imagery otherwise.
+- `public/work/*.webp`: screenshots from Marat's public repository LocalAtelier (its `docs/` folder),
+  converted to WebP. No generated or third-party imagery otherwise.
 
 ## Do / Don't
 - Do keep every claim inside `docs/career/evidence-register.md`; diagrams use only approved components.
