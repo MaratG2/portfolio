@@ -5,8 +5,8 @@ then let them verify with evidence. Routes: `/` (RU) and `/en`.
 
 ## Why this shape
 
-- **Role first.** The first viewport states the role and positioning (approved `headline`), with contact and
-  résumé actions. The name sits in the eyebrow and the top bar.
+- **Who, then what.** The first viewport is the name, the current role, two sentences on what Marat builds
+  and has built, and the contact and résumé actions.
 - **The effect carries the story.** The scroll film is the portrait turning into a system — architecture,
   multimodal generation, evaluation — the three things the career evidence supports. It is not decoration:
   each scene has a caption tied to approved claims.
@@ -19,12 +19,12 @@ then let them verify with evidence. Routes: `/` (RU) and `/en`.
 
 1. Hero film (pinned, 360vh): colour photo → dissolves into its own coloured particles → graph → point cloud →
    evaluation curve.
-2. 01 Selected work: Artillect (diagram), AI game master / Adventarium (diagram), Model Agency (compact row).
-3. 02 Open source: LocalAtelier (screenshots), HiDreamGenerator (before/after slider), MaskRoute
-   (engineering case study card with validation results and the documented false denial).
-4. 03 Experience: one row per role + education and languages.
-5. 04 Stack: the five competency groups with tools.
-6. 05 Contact: email with copy button, profiles, résumé and PDF.
+2. Work: Artillect (diagram), AI game master / Adventarium (diagram), Model Agency (compact row).
+3. Open source: LocalAtelier (screenshots), MaskRoute (summary beside three validation figures).
+4. Experience: one row per role with a one-line summary (`site.experience.lines`, aligned by index with
+   `experience`), then education and languages.
+5. Skills: the five competency groups, each with its tools.
+6. Contact: email with copy button, profiles, résumé and PDF.
 
 ## Adding a GitHub project
 
@@ -32,8 +32,8 @@ then let them verify with evidence. Routes: `/` (RU) and `/en`.
    (`id`, `summary`, `tags`). Keep claims to what the repository README states.
 2. Add `repo`, `year` and optional `images` in `projectMeta` in `app/_content/profile.ts`.
 3. Put images in `public/work/` as WebP (≤ ~70 KB each; 1536px wide is plenty).
-4. Render it in `portfolio.tsx` in the Open source section: a feature card (`project-feature`) for a
-   flagship, or a `project` card in `project-row`. A repository with only a licence should wait.
+4. Render it in `portfolio.tsx` in the Open source section: `project-feature` with screenshots, or
+   `project-case` with figures. A repository with only a licence should wait.
 
 ## Adding approved ORO highlights
 

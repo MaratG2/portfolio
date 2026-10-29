@@ -13,8 +13,8 @@ the CV PDFs. Current-employer details are restricted by `docs/career/evidence-re
 The hero is a scroll-scrubbed canvas film that opens on the colour portrait and dissolves it into particles
 (`app/_components/hero-film.tsx`; `public/hero/portrait.webp` and `field.png` are rebuilt by
 `node scripts/build-site-assets.mjs`).
-Case studies use server-rendered SVG diagrams (`diagrams.tsx`). Motion is off without JavaScript
-and under reduced-motion preferences; the header dot toggles it. See DESIGN.md and
+Case studies use server-rendered SVG diagrams (`diagrams.tsx`). Motion is on by default and off
+only without JavaScript. See DESIGN.md and
 `docs/design-direction.md`, which also covers adding projects and approved ORO highlights.
 
 Run `pnpm dev`, `pnpm lint`, and `pnpm build` for development and verification.
