@@ -10,8 +10,9 @@ Résumé readers: `/resume` and `/en/resume`, with Back and PDF download control
 Both pages render on the server and share approved public content in
 `app/_content/profile.json`, exported through `profile.ts`. The same JSON generates
 the CV PDFs. Current-employer details are restricted by `docs/career/evidence-register.md`.
-The hero is a scroll-scrubbed canvas film built from the portrait (`app/_components/hero-film.tsx`;
-its brightness field `public/hero/field.png` is rebuilt by `node scripts/build-site-assets.mjs`).
+The hero is a scroll-scrubbed canvas film that opens on the colour portrait and dissolves it into particles
+(`app/_components/hero-film.tsx`; `public/hero/portrait.webp` and `field.png` are rebuilt by
+`node scripts/build-site-assets.mjs`).
 Case studies use server-rendered SVG diagrams (`diagrams.tsx`). Motion is off without JavaScript
 and under reduced-motion preferences; the header dot toggles it. See DESIGN.md and
 `docs/design-direction.md`, which also covers adding projects and approved ORO highlights.

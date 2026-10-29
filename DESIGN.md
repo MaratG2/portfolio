@@ -26,9 +26,11 @@ layout: { max: "1320px", gutter: "clamp(16px, 4vw, 56px)", breakpoints: ["1080px
 # Design System: Signal to System
 
 ## Concept
-The page tells one story: a person becomes a system. The hero is the user's real portrait (`public/photo.png`)
-rendered as ~12k points; scrolling scrubs those same points through three scenes — a pipeline graph
-(Architecture), a rotating point cloud (Multimodal), and a scatter converging onto a curve (Evaluation).
+The page tells one story: a person becomes a system. The hero opens on the user's real colour photo, sharp and
+unfiltered. Scrolling dissolves it into ~12k particles that keep the photo's own colours, then scrubs them
+through three scenes — a pipeline graph (Architecture), a rotating point cloud (Multimodal), and a scatter
+converging onto a curve (Evaluation). Never show the portrait desaturated or as dots on its own: on a dark page
+that reads as a memorial (rejected October 2026).
 Every frame is a pure function of scroll position, so scrolling back rewinds it. The rest of the page is
 quiet, editorial and evidence-first: case studies with system diagrams, real open-source screenshots, a
 compact timeline, the stack, and a large contact block.
@@ -50,9 +52,10 @@ Case studies are a sticky copy column (4fr) beside a figure (7fr); they stack be
 wide SVG and a separate vertical SVG below 700px rather than shrinking text.
 
 ## Motion
-- Hero film: `app/_components/hero-film.tsx`, 2D canvas, 360vh pinned stage. Segments: portrait hold →
-  0.08–0.30 graph → 0.42–0.60 knot → 0.70–0.86 curve. Particles carry per-point delay and swirl; idle drift is
-  sub-pixel. Mouse repels points in the portrait scene. Rendering stops when the hero is off-screen.
+- Hero film: `app/_components/hero-film.tsx`, 2D canvas, 360vh pinned stage. Photo hold (with a soft mint
+  glow) → photo fades 0.06–0.14 while its pixel particles leave → 0.08–0.30 graph → 0.42–0.60 knot (keeps the
+  photo colours) → 0.70–0.86 curve. Particles carry per-point delay, swirl and a staggered switch from photo
+  colour to paper/accent. The loop sleeps while only the still photo is visible and when the hero is off-screen.
 - Diagrams: lines draw in once in view, then accent packets flow along edges; the Adventarium workflow
   highlights a trace path. Labelled "Schematic" — it illustrates scale, not the real graph.
 - Reveals: 900ms rise once per element via `[data-reveal]`.
@@ -61,8 +64,9 @@ wide SVG and a separate vertical SVG below 700px rather than shrinking text.
   is a static portrait with the three captions listed beneath.
 
 ## Assets and provenance
-- `public/photo.png`: the user's own portrait, unchanged. `public/hero/field.png` is derived from it by
-  `scripts/build-site-assets.mjs` (brightness field with the foliage background suppressed).
+- `public/photo.png`: the user's own portrait, unchanged. `scripts/build-site-assets.mjs` derives
+  `public/hero/portrait.webp` (960px colour copy drawn on the canvas) and `public/hero/field.png` (112×112,
+  48-colour quantized copy; one particle per pixel).
 - `public/work/*.webp`: screenshots and model outputs from Marat's public repositories LocalAtelier and
   HiDreamGenerator (their `docs/` folders), converted to WebP. No generated or third-party imagery otherwise.
 

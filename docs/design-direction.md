@@ -17,7 +17,8 @@ then let them verify with evidence. Routes: `/` (RU) and `/en`.
 
 ## Page order
 
-1. Hero film (pinned, 360vh): portrait → graph → point cloud → evaluation curve.
+1. Hero film (pinned, 360vh): colour photo → dissolves into its own coloured particles → graph → point cloud →
+   evaluation curve.
 2. 01 Selected work: Artillect (diagram), AI game master / Adventarium (diagram), Model Agency (compact row).
 3. 02 Open source: LocalAtelier (screenshots), HiDreamGenerator (before/after slider), MaskRoute
    (engineering case study card with validation results and the documented false denial).
