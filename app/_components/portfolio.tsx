@@ -139,11 +139,33 @@ export default function Portfolio({ lang }: { lang: Language }) {
       <section className="section" id="experience" aria-labelledby="experience-title">
         <SectionHead id="experience-title" title={s.experience.title} />
         <ol className="timeline">
-          {p.experience.map((item, i) => <li key={item.company} data-reveal>
-            <p className="timeline-period">{item.period.replace(/\s[—–]\s/g, " — ")}</p>
-            <div className="timeline-head"><h3>{item.company.replace(/ \/ /g, ", ")}</h3><p>{item.role}</p></div>
-            <p className="timeline-text">{s.experience.lines[i]}</p>
-          </li>)}
+          {p.experience.map((item, i) => {
+            const row = <>
+              <p className="timeline-period">{item.period.replace(/\s[—–]\s/g, " — ")}</p>
+              <div className="timeline-head"><h3>{item.company.replace(/ \/ /g, ", ")}</h3><p>{item.role}</p></div>
+              <p className="timeline-text">{s.experience.lines[i]}</p>
+            </>;
+            const more = s.experience.details[i];
+            if (!more) return <li key={item.company} data-reveal><div className="timeline-row">{row}</div></li>;
+            return <li key={item.company} data-reveal>
+              <details className="timeline-item">
+                <summary className="timeline-row">
+                  {row}
+                  <span className="timeline-toggle"><span className="toggle-more">{s.experience.more}</span><span className="toggle-less">{s.experience.less}</span><span className="toggle-icon" aria-hidden="true" /></span>
+                </summary>
+                <div className="timeline-more">
+                  <p className="timeline-intro">{more.intro}</p>
+                  <div className="timeline-groups">
+                    {more.groups.map(group => <section key={group.title}>
+                      <h4>{group.title}</h4>
+                      <ul>{group.items.map(text => <li key={text}>{text}</li>)}</ul>
+                    </section>)}
+                  </div>
+                  <ul className="tags">{more.tools.map(t => <li key={t}>{t}</li>)}</ul>
+                </div>
+              </details>
+            </li>;
+          })}
         </ol>
         <dl className="facts" data-reveal>
           <div><dt>{s.experience.education}</dt><dd>{s.experience.school}<span>{s.experience.degree}, 2024</span></dd></div>

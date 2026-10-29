@@ -22,7 +22,9 @@ then let them verify with evidence. Routes: `/` (RU) and `/en`.
 2. Work: Artillect (diagram), AI game master / Adventarium (diagram), Model Agency (compact row).
 3. Open source: LocalAtelier (screenshots), MaskRoute (summary beside three validation figures).
 4. Experience: one row per role with a one-line summary (`site.experience.lines`, aligned by index with
-   `experience`), then education and languages.
+   `experience`). Rows with `site.experience.details` (same index; `null` for ORO, which may only show the
+   approved sentence) open as native `<details>` into an intro, grouped bullets and tools. Then education and
+   languages.
 5. Skills: the five competency groups, each with its tools.
 6. Contact: email with copy button, profiles, résumé and PDF.
 

@@ -218,6 +218,100 @@
           "Пайплайны генерации fashion-контента на ComfyUI и Runpod. Проектная работа.",
           "Геймплей, мультиплеер, инструменты и интеграции с backend на C# и Unity."
         ],
+        "more": "Подробнее",
+        "less": "Свернуть",
+        "details": [
+          null,
+          {
+            "intro": "Artillect — платформа генерации и редактирования текста, изображений, видео, аудио и 3D.",
+            "groups": [
+              {
+                "title": "Архитектура и разработка",
+                "items": [
+                  "Требования, архитектура, backend и API",
+                  "Распределение задач и рендер-исполнители",
+                  "Модели на GPU-сервере компании через ComfyUI и внешние модели через fal.ai в одной платформе",
+                  "RAG для генерации промптов под выбранный тип"
+                ]
+              },
+              {
+                "title": "Руководство",
+                "items": [
+                  "Запуск и сопровождение релизов",
+                  "Техническое планирование",
+                  "Найм и координация команды"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "fal.ai", "RAG", "GPU-сервер"]
+          },
+          {
+            "intro": "Частичная занятость, параллельно с krem.digital.",
+            "groups": [
+              {
+                "title": "LLM и агенты",
+                "items": [
+                  "Несколько workflow в Dify, больше 100 узлов суммарно",
+                  "Разные модели и промпты на разных этапах",
+                  "Память и база знаний"
+                ]
+              },
+              {
+                "title": "Качество",
+                "items": [
+                  "Автоматическая оценка ответов на датасете",
+                  "Трассировка и мониторинг"
+                ]
+              },
+              {
+                "title": "Backend",
+                "items": [
+                  "API на Python и тесты",
+                  "MySQL",
+                  "Лимиты и подписки"
+                ]
+              }
+            ],
+            "tools": ["Dify", "Python", "MySQL"]
+          },
+          {
+            "intro": "Частичная занятость, параллельно с krem.digital.",
+            "groups": [
+              {
+                "title": "Пайплайны",
+                "items": [
+                  "Уточнение требований",
+                  "Архитектура и окружения в Runpod и ComfyUI",
+                  "Кастомные ноды"
+                ]
+              },
+              {
+                "title": "Генерация",
+                "items": [
+                  "Сохранение внешности персонажей",
+                  "Управление позами",
+                  "Обучение LoRA"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "Runpod", "LoRA"]
+          },
+          {
+            "intro": "Игры и интерактивные проекты в нескольких командах.",
+            "groups": [
+              {
+                "title": "Что делал",
+                "items": [
+                  "Геймплей",
+                  "Мультиплеер",
+                  "Инструменты для разработки",
+                  "Интеграции с backend"
+                ]
+              }
+            ],
+            "tools": ["C#", "Unity"]
+          }
+        ],
         "education": "Образование",
         "languages": "Языки",
         "degree": "Программная инженерия, бакалавр",
@@ -453,6 +547,100 @@
           "AI game master for role-playing games in Telegram and Discord. Project work.",
           "Fashion content generation pipelines on ComfyUI and Runpod. Project work.",
           "Gameplay, multiplayer, tooling and backend integrations in C# and Unity."
+        ],
+        "more": "Details",
+        "less": "Hide",
+        "details": [
+          null,
+          {
+            "intro": "Artillect is a platform for generating and editing text, images, video, audio and 3D.",
+            "groups": [
+              {
+                "title": "Architecture and development",
+                "items": [
+                  "Requirements, architecture, backend and APIs",
+                  "Task distribution and render workers",
+                  "Models on the company GPU server through ComfyUI and external models through fal.ai in one platform",
+                  "RAG that generates prompts for the selected type"
+                ]
+              },
+              {
+                "title": "Leadership",
+                "items": [
+                  "Launch and release support",
+                  "Technical planning",
+                  "Hiring and team coordination"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "fal.ai", "RAG", "GPU server"]
+          },
+          {
+            "intro": "Part-time, alongside krem.digital.",
+            "groups": [
+              {
+                "title": "LLM and agents",
+                "items": [
+                  "Several Dify workflows, over 100 nodes in total",
+                  "Different models and prompts at different stages",
+                  "Memory and knowledge base"
+                ]
+              },
+              {
+                "title": "Quality",
+                "items": [
+                  "Automated answer evaluation on a dataset",
+                  "Tracing and monitoring"
+                ]
+              },
+              {
+                "title": "Backend",
+                "items": [
+                  "Python APIs and tests",
+                  "MySQL",
+                  "Usage limits and subscriptions"
+                ]
+              }
+            ],
+            "tools": ["Dify", "Python", "MySQL"]
+          },
+          {
+            "intro": "Part-time, alongside krem.digital.",
+            "groups": [
+              {
+                "title": "Pipelines",
+                "items": [
+                  "Clarifying requirements",
+                  "Architecture and environments on Runpod and ComfyUI",
+                  "Custom nodes"
+                ]
+              },
+              {
+                "title": "Generation",
+                "items": [
+                  "Character consistency",
+                  "Pose control",
+                  "LoRA training"
+                ]
+              }
+            ],
+            "tools": ["ComfyUI", "Runpod", "LoRA"]
+          },
+          {
+            "intro": "Games and interactive projects across several teams.",
+            "groups": [
+              {
+                "title": "What I worked on",
+                "items": [
+                  "Gameplay",
+                  "Multiplayer",
+                  "Development tooling",
+                  "Backend integrations"
+                ]
+              }
+            ],
+            "tools": ["C#", "Unity"]
+          }
         ],
         "education": "Education",
         "languages": "Languages",
