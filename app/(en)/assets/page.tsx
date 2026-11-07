@@ -4,6 +4,8 @@ import Link from "next/link";
 import { links } from "../../_content/profile";
 import styles from "./assets.module.css";
 
+const sampleUrl = (file: string) => `/assets/retro-kitchen/${file}.webp?v=20261107-model-fix`;
+
 export const metadata: Metadata = {
   title: "maratg2 — Low-poly props for Unity",
   description: "Low-poly 3D props by Marat Gazizulin. Explore Retro Kitchen, a collection of kitchen appliances, furniture and everyday details for Unity URP. Work samples and contact.",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://maratg2.ru/assets",
     type: "website",
     locale: "en_US",
-    images: [{ url: "https://maratg2.ru/assets/retro-kitchen/kitchen.webp", width: 1920, height: 1080, alt: "Retro Kitchen demo scene rendered in Unity" }],
+    images: [{ url: `https://maratg2.ru${sampleUrl("kitchen")}`, width: 1920, height: 1080, alt: "Retro Kitchen demo scene rendered in Unity" }],
   },
 };
 
@@ -32,7 +34,7 @@ function Arrow() {
 }
 
 function WorkSample({ file, alt, caption, large = false }: { file: string; alt: string; caption: string; large?: boolean }) {
-  const src = `/assets/retro-kitchen/${file}.webp`;
+  const src = sampleUrl(file);
   return (
     <figure className={styles.sample}>
       <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`View ${caption.toLowerCase()} at full size (opens in a new tab)`}>
@@ -54,7 +56,7 @@ export default function AssetsPage() {
           <a className={styles.primary} href="#retro-kitchen">Explore the first pack <Arrow /></a>
         </div>
         <figure className={styles.heroFigure}>
-          <Image src="/assets/retro-kitchen/kitchen.webp" alt="An isometric retro kitchen with pale blue cabinets, a cream refrigerator and stove, a patterned tablecloth and household props." width={1920} height={1080} sizes="(max-width: 900px) 100vw, 60vw" priority />
+          <Image src={sampleUrl("kitchen")} alt="An isometric retro kitchen with pale blue cabinets, a cream refrigerator and stove, a patterned tablecloth and household props." width={1920} height={1080} sizes="(max-width: 900px) 100vw, 60vw" priority />
           <figcaption>Retro Kitchen / Unity scene render</figcaption>
         </figure>
       </section>
