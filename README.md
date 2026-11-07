@@ -31,6 +31,26 @@ the same PDFs into `public/cv`. It also renders vector page previews and their a
 Ready-to-use HH, LinkedIn and GitHub copy is indexed in [docs/career/README.md](docs/career/README.md), separately from the working guide analysis and assistant development plan.
 No external profile accounts have been changed. Do not add internal employer information.
 
+## Unity assets portfolio
+
+`/assets` is a separate English publisher portfolio with four real Retro Kitchen
+scene renders, pack specifications, creator details and a public support email.
+`/assets/contact` is the support page. Neither route is linked from the career
+portfolio. Both use `noindex, follow`; they are public URLs, not private pages.
+The pack is marked as in preparation until it is actually published.
+
+Page source and scoped styles live in `app/(en)/assets`. Web images are in
+`public/assets`. Publisher avatar/banner PNGs and copy-ready profile text are in
+`output/asset-publisher`; these upload files are not served by the website.
+`generation-prompts.json` records the image-generation prompts and provenance.
+Rebuild image exports with `scripts/build-publisher-assets.mjs` using the source
+Media directory, avatar PNG and banner PNG as its three arguments.
+The original game and package files are not needed to build or run this site.
+
+After deploying through the existing Coolify setup, the intended publisher website
+is `https://maratg2.ru/assets` and support URL is `https://maratg2.ru/assets/contact`.
+This change does not itself upload a publisher profile or asset package to Unity.
+
 ## Coolify deployment
 
 Create separate Coolify resources for production and staging and select the matching Compose file:

@@ -30,6 +30,7 @@ logs
 !/public/cv/
 !/public/hero/
 !/public/work/
+!/public/assets/
 .cache
 .vscode
 .DS_Store

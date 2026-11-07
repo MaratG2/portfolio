@@ -1,0 +1,33 @@
+MARATG2 — UNITY ASSET STORE PUBLISHER PROFILE
+
+HEADLINE (25 / 60)
+Low-poly props for Unity.
+
+PARAGRAPH (249 / 300)
+I create low-poly props and environment assets for Unity, inspired by retro interiors and everyday objects. My packs focus on a consistent visual style, pixel textures, practical prefabs and editable demo scenes, starting with Retro Kitchen for URP.
+
+WEBSITE — intended address after deployment
+https://maratg2.ru/assets
+
+CUSTOMER SUPPORT WEBSITE — intended address after deployment
+https://maratg2.ru/assets/contact
+
+PUBLIC SUPPORT EMAIL
+maratg2develop@gmail.com
+
+IMAGES
+profile-picture-512.png — 512 x 512 PNG
+promo-banner-v2-3x2.png — 1536 x 1024 PNG; recommended replacement banner
+The earlier promo-banner-2400x800.png is retained as a superseded 3:1 version.
+High-resolution source images are saved alongside these exports.
+The final banner says: maratg2 / Low-poly props for Unity.
+The replacement uses 3:2 based on the owner's crop-dialog screenshot (approximately 644 x 429).
+Exact portal pixel requirements and successful upload remain unverified.
+Both images use a generated low-poly portrait based on the owner's public site photo.
+These are publisher-brand illustrations, not screenshots of an asset pack.
+
+STATUS
+Website implementation and local checks complete. Public deployment not performed.
+The publisher profile and these images have not been uploaded to Unity.
+The asset pack is shown as in preparation, not available for purchase.
+Only genuine Unity renders are used as product work samples.

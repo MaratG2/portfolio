@@ -1,0 +1,14 @@
+{
+  "created": "2026-11-07",
+  "mode": "Built-in image_gen",
+  "file": "promo-banner-v2-3x2.png",
+  "source": "promo-banner-original.png",
+  "reason": "User's publisher crop screenshot shows an approximately 644 x 429 central crop (~3:2). Previous 3:1 composition did not fill it.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "officialPixelRequirementsVerified": false,
+  "uploadedToUnity": false,
+  "prompt": "Use case: ads-marketing / compositing.\nRegenerate this maratg2 Unity asset publisher promotional image as a true LANDSCAPE 3:2 composition, target 1536x1024, NOT the original ultra-wide 3:1 banner. The original upload was cut incorrectly by a 3:2 crop tool. Fill the entire 3:2 canvas with the same dark forest-charcoal background #0a0c0b; no white space, no letterboxing, no white bars.\nPreserve the reference's visual identity and recognizable young man: clean-shaven, medium-length side-parted brown hair, green eyes, slight friendly smile, white crewneck sweater, sculpted low-poly faceted face/hair/body, warm natural skin tones, matte materials, soft warm key light and restrained mint rim lighting. Keep this person consistent with the original.\nRECOMPOSE for the taller canvas: a balanced editorial poster, large clean off-white lowercase wordmark \"maratg2\" at upper-left/center-left, with the exact mint subtitle \"Low-poly props for Unity.\" underneath, preferably in two gracefully spaced lines if needed. Wordmark and subtitle should occupy the left half and must not overlap the portrait. Portrait bust at right, fully inside the canvas, comfortably smaller than the image height, with at least 10% margin above the hair and 10% margin below the shoulders. Main text safely inside the central 80% width; generous 10% outer safe margins for all essential content. Typography is crisp geometric sans, wide comfortable tracking, very readable at thumbnail size. Keep sufficient horizontal space between text and portrait.\nGround the composition with a restrained few low-poly geometric stones in muted sage and warm cream along the lower corners and a quiet matte dark platform beneath the bust, leaving lots of intentional dark negative space. Keep same beautiful restrained aesthetic as source. This is brand art, not actual pack contents. No game screenshots, no Unity logo, no badges, no offers, no other copy. Do not include the rejected words \"Everyday stories\". EXACT text only: \"maratg2\" and \"Low-poly props for Unity.\""
+}
